@@ -29,8 +29,7 @@ header{
 }
 
 .search{
-	overflow: hidden;
-	width: 320px;
+	width: 350px;
   	height: 30px;
 	background-color: #F0F0F0;
 	border-radius: 10px 0px 0px 10px; 
@@ -55,7 +54,7 @@ header{
 
 }
 
-button {
+#clearButton, #searchButton {
 	height: 32px;
 	width: 100%;
   	border: none;
@@ -66,7 +65,6 @@ button {
 
 #clearButton {
 	border-radius: 0px 10px 10px 0px; 
-	border: none;
 }
 
 #searchButton:before {
