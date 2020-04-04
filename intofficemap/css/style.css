@@ -67,15 +67,18 @@ button {
 }
 
 #searchButton:before {
-
 	content: "\f002";
   	font-family: FontAwesome;
   	font-size: 16px;
-  	color: #484848;
+  	color: #4B4B4B;
 }
 
 #searchButton:hover {
 	background: #E4E4E4;
+}
+
+#searchButton:active:before {
+	color: #E4B218;
 }
 
 #clearButton:before {
@@ -83,11 +86,15 @@ button {
 	content: "\f00d";
   	font-family: FontAwesome;
   	font-size: 16px;
-  	color: #484848;
+  	color: #4B4B4B;
 }
 
 #clearButton:hover {
 	background: #E4E4E4;
+}
+
+#clearButton:active:before {
+	color: #E4B218;
 }
 
 .map-wrapper {
@@ -121,7 +128,7 @@ button {
 .scale-and-floor {
 	display: flex;
 	width: 100%;
-	height: 80%;
+	height: 75%;
 	flex-direction: column;
 }
 
@@ -138,5 +145,8 @@ button {
 .items.scale {
 	height: 100%;
 	display: flex;
-	align-items: flex-end;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
 }
+
