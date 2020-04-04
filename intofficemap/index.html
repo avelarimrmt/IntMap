@@ -12,9 +12,12 @@
   	<header>
       <div class='search-wrapper'>
 		<form action="#" class="search-form">
-    		<input type="text" class="search">
+    		<input id="textInput" type="text" class="search">
     		<div class="btn">
-   				 <button type="submit"></button>
+   				 <button id="searchButton" type="submit"></button>
+			</div>
+			<div class="btn">
+				<button id="clearButton"></button>
 			</div>
   		</form>
       </div>
@@ -28,7 +31,7 @@
   			<div class="scale-and-floor-wrapper">
   				<div class="scale-and-floor">
  				<div class="items scale">
-  				<object data="images/scale.svg" type="image/svg+xml" id="iscale" width="23" height="50"></object>
+  				<object data="images/scale.svg" type="image/svg+xml" id="iscale" width="35" height="234"></object>
   				</div>
   				<div class="items">
   				<object data="images/floor.svg" type="image/svg+xml" id="ifloor" width="105" height="149"></object>
@@ -37,5 +40,11 @@
   			</div>
   		</div>
   	</section>
+<script type="text/javascript">
+  	document.getElementById("clearButton").onclick = function(e) {
+    document.getElementById("textInput").value = "";
+}
+ </script>
+
   </body>
 	
