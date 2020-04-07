@@ -68,9 +68,6 @@ header{
 }
 
 #searchButton:before {
-	content: "\f002";
-  	font-family: FontAwesome;
-  	font-size: 16px;
   	color: #4B4B4B;
 }
 
@@ -83,10 +80,6 @@ header{
 }
 
 #clearButton:before {
-
-	content: "\f00d";
-  	font-family: FontAwesome;
-  	font-size: 16px;
   	color: #4B4B4B;
 }
 
