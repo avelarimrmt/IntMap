@@ -14,16 +14,10 @@
 		<form action="#" class="search-form">
     		<input id="textInput" type="text" class="search">
     		<div class="btn">
-   				 <button id="searchButton" type="submit">
-   				 	<object type="image/svg+xml" data="images/searchicon.svg">
-   				 		<img src="images/searchicon.png">
-   				 	</object></button>
+   				 <button id="searchButton" type="submit"><i class="fa fa-search"></i></button>
 			</div>
 			<div class="btn">
-				<button id="clearButton" type="submit">
-					<object type="image/svg+xml" data="images/clear.svg">
-   				 		<img src="images/clear.png">
-   				 	</object></button>
+				<button id="clearButton" type="submit"><i class="fa fa-times"></i></button>
 			</div>
   		</form>
       </div>
@@ -49,11 +43,27 @@
   			</div>
   		</div>
   	</section>
-<script type="text/javascript">
-  	document.getElementById("clearButton").onclick = function(e) {
-    document.getElementById("textInput").value = "";
-}
- </script>
 
-  </body>
-	
+<script type="text/javascript">
+let button1 = document.getElementById("clearButton");
+let button2 = document.getElementById("searchButton");
+let inputT = document.getElementById("textInput");
+
+	inputT.oninput =  function() {
+		if (this.value != "") { 
+			button2.style.color = '#4B4B4B';
+			button2.style.borderRadius = '0';
+			button1.style.color = '#4B4B4B'; 
+			button1.style.display = 'block';
+			button2.style.cursor = 'pointer';
+			}
+		};
+  	button1.onclick = function(e) {
+    	inputT.value = ""; 
+    	button2.style.color = '#E4E4E4';
+		button2.style.borderRadius = '0px 10px 10px 0px';
+		button1.style.display = 'none';
+		}
+</script>
+
+</body>
