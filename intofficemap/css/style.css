@@ -61,19 +61,16 @@ header{
 	font-size: 20px;
 }
 
-#searchButton {
-	border-radius: 0px 10px 10px 0px;
 
-}
-
-#clearButton {
-	border-radius: 0px 10px 10px 0px; 
-	display: none;
-	cursor: pointer;
-}
 
 #searchButton, #clearButton {
-  	color: #E4E4E4;
+	border-radius: 0px 10px 10px 0px; 
+
+	cursor: pointer;
+	color: #4B4B4B;
+}
+ #clearButton {
+  	display: none;
 }
 
 #searchButton:active, #clearButton:active {
@@ -81,9 +78,22 @@ header{
 	outline: none;
 }
 
-#searchButton:hover, #clearButton:hover {
+#searchButton:default:hover, #clearButton:hover {
 	background: #E4E4E4;
 }
+
+#searchButton:disabled {
+	color: #E4E4E4;
+	outline: none;
+	cursor: default;
+}
+#searchButton:disabled:hover {
+	background: #F0F0F0;
+}
+/*#searchButton:hover {
+	background: #F0F0F0;
+}*/
+
 
 
 .map-wrapper {
@@ -142,6 +152,10 @@ header{
 .scale-and-floor-wrapper svg:hover .line1,
 .scale-and-floor-wrapper svg:hover .line2 { 
   fill: #484848;
+}
+
+.map svg:hover .table { 
+  fill: #616161;
 }
 
 svg {

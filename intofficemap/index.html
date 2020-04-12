@@ -14,7 +14,7 @@
 		<form action="#" class="search-form">
     		<input id="textInput" type="text" class="search">
     		<div class="btn">
-   				 <button id="searchButton" type="submit"><i class="fa fa-search"></i></button>
+   				 <button id="searchButton" class="searchButton hover" disabled="disabled" type="submit"><i class="fa fa-search"></i></button>
 			</div>
 			<div class="btn">
 				<button id="clearButton" type="submit"><i class="fa fa-times"></i></button>
@@ -26,6 +26,16 @@
   	<section class="map-wrapper">
   		<div class="map-content">
   			<div class="map">
+
+  				<svg class = "table" width="90" height="82" viewBox="0 0 90 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<rect x="90" y="27" width="55" height="90" rx="8" transform="rotate(90 90 27)" fill="#FFC617"/>
+				<path d="M59 27L32 27V10C32 8.34315 33.3431 7 35 7L56 7C57.6569 7 59 8.34315 59 10V27Z" fill="#616161"/>
+				<ellipse cx="45.5" cy="6" rx="14.5" ry="6" transform="rotate(-180 45.5 6)" fill="#616161"/>
+				<path d="M32 7.5C32 5.01472 38.0442 3 45.5 3C52.9558 3 59 5.01472 59 7.5C59 8.75041 58.47 10.8817 56 11.6972C53.5607 12.5026 49.2046 13 45.5 13C41.7954 13 37.4393 12.5026 35 11.6972C32.53 10.8817 32 8.75041 32 7.5Z" fill="#484848"/>
+				<path d="M32 23.3333C32 24.8061 30.8061 26 29.3333 26C28.597 26 28 25.403 28 24.6667V15.6667C28 14.1939 29.1939 13 30.6667 13C31.403 13 32 13.597 32 14.3333V23.3333Z" fill="#484848"/>
+				<path d="M63 24.6667C63 25.403 62.403 26 61.6667 26C60.1939 26 59 24.8061 59 23.3333V14.3333C59 13.597 59.597 13 60.3333 13C61.8061 13 63 14.1939 63 15.6667V24.6667Z" fill="#484848"/>
+				</svg> 
+
   				<object data="images/tables.svg" type="image/svg+xml" id="imap" width="864" height="189"></object>
   			</div>	
   			<div class="scale-and-floor-wrapper">
@@ -55,7 +65,6 @@
   			</div>
   		</div>
   	</section>
-
 <script type="text/javascript">
 let button1 = document.getElementById("clearButton");
 let button2 = document.getElementById("searchButton");
@@ -63,12 +72,11 @@ let inputT = document.getElementById("textInput");
 
 	inputT.oninput =  function() {
 		if (this.value != "") { 
-			button2.style.color = '#4B4B4B';
 			button2.style.borderRadius = '0';
-			button1.style.color = '#4B4B4B'; 
+			button2.style.color = '#4B4B4B'; 
 			button1.style.display = 'block';
-			button2.style.cursor = 'pointer';
 			button2.style.outline = 'none';
+			button2.disabled = false; 
 			}
 		};
   	button1.onclick = function(e) {
@@ -76,6 +84,8 @@ let inputT = document.getElementById("textInput");
     	button2.style.color = '#E4E4E4';
 		button2.style.borderRadius = '0px 10px 10px 0px';
 		button1.style.display = 'none';
+		button2.disabled = true; 
 		}
+
 </script>
 </body>
