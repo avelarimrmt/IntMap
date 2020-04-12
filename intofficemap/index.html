@@ -31,10 +31,22 @@
   			<div class="scale-and-floor-wrapper">
   				<div class="scale-and-floor">
  				<div class="items scale">
-  				<!-- <object data="images/scale.svg" type="image/svg+xml" id="iscale" width="35" height="234"></object> -->
-  				<object data="images/plus.svg" type="image/svg+xml" id="iplus" width="30" height="30"></object>
-  				<object data="images/full.svg" type="image/svg+xml" id="iscale" width="18" height="150"></object>
-  				<object data="images/minus.svg" type="image/svg+xml" id="iminus" width="30" height="30"></object>
+
+  				<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M0 5C0 2.23858 2.23858 0 5 0H25C27.7614 0 30 2.23858 30 5V25C30 27.7614 27.7614 30 25 30H5C2.23858 30 0 27.7614 0 25V5Z" fill="#E4E4E4"/>
+				<rect class="line1" x="5" y="17" width="4" height="20" rx="2" transform="rotate(-90 5 17)" fill="#616161"/>
+				<rect class="line2" x="13" y="5" width="4" height="20" rx="2" fill="#616161"/>
+				</svg>
+
+				<div class="bar">
+    				<input class="input-range" orient="vertical" type="range" step="0.5" value="3" min="1" max="10">
+				</div>
+  				
+  				<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path opacity="0.5" d="M30 25C30 27.7614 27.7614 30 25 30L5 30C2.23858 30 3.8147e-06 27.7614 3.8147e-06 25L3.8147e-06 5C3.8147e-06 2.23858 2.23858 0 5 0L25 0C27.7614 0 30 2.23858 30 5L30 25Z" fill="#E4E4E4"/>
+				<rect class="line1" x="5" y="17" width="4" height="20" rx="2" transform="rotate(-90 5 17)" fill="#616161"/>
+				</svg>
+
   				</div>
   				<div class="items">
   				<object data="images/floor.svg" type="image/svg+xml" id="ifloor" width="105" height="149"></object>
@@ -56,6 +68,7 @@ let inputT = document.getElementById("textInput");
 			button1.style.color = '#4B4B4B'; 
 			button1.style.display = 'block';
 			button2.style.cursor = 'pointer';
+			button2.style.outline = 'none';
 			}
 		};
   	button1.onclick = function(e) {
@@ -65,5 +78,4 @@ let inputT = document.getElementById("textInput");
 		button1.style.display = 'none';
 		}
 </script>
-
 </body>

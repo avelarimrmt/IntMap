@@ -28,7 +28,7 @@ header{
 	align-items: center;
 }
 
-input {
+#textInput {
   	width: 350px;
   	height: 30px;
   	padding-left: 18px;
@@ -40,7 +40,7 @@ input {
   	transition: .3s linear;
 }
 
-input:focus {
+#textInput:focus {
 	width: 505px;
 }
 
@@ -78,6 +78,7 @@ input:focus {
 
 #searchButton:active, #clearButton:active {
 	color: #E4B218;
+	outline: none;
 }
 
 #searchButton:hover, #clearButton:hover {
@@ -138,3 +139,58 @@ input:focus {
 	justify-content: space-around;
 }
 
+.scale-and-floor-wrapper svg:hover .line1,
+.scale-and-floor-wrapper svg:hover .line2 { 
+  fill: #484848;
+}
+
+svg {
+	cursor: pointer;
+}
+
+input[type='range'] {
+	overflow: hidden;
+    width: 8px;
+    -webkit-appearance: none;
+    background-color: #616161;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    -webkit-appearance: slider-vertical;
+    writing-mode: bt-lr;      
+    margin: 20px 0;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+    
+
+input[type='range']::-webkit-slider-runnable-track {
+    height: 80px;
+    -webkit-appearance: slider-vertical;
+    color: #616161;
+    margin-top: -1px;
+}
+    
+input[type='range']::-webkit-slider-thumb {
+    width: 8px;
+    -webkit-appearance: slider-vertical;
+    height: 18px;
+    cursor: pointer;
+    background: #FFC617;
+    box-shadow: -150px 150px 0 150px #FFC617;
+}
+    
+input[type="range"]::-moz-range-progress {
+    background-color: #FFC617; 
+}
+input[type="range"]::-moz-range-track {  
+    background-color: #616161;
+}
+input[type="range"]::-ms-fill-lower {
+    background-color: #FFC617; 
+}
+input[type="range"]::-ms-fill-upper {  
+    background-color: #616161;
+}
