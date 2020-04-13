@@ -157,6 +157,11 @@ header{
 	line-height: 11px;
 	color: #303030;
 	cursor: default;
+	background: transparent;
+}
+
+.value-scale span::selection {
+	background: transparent;
 }
 
 svg {
@@ -207,6 +212,10 @@ svg {
 	text-align: center;
 	color: #FFC617;
 	cursor: default;
+}
+
+#floor span::selection {
+	background: transparent;
 }
 
 .down-toggle {
