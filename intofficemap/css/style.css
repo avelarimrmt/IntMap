@@ -199,6 +199,20 @@ svg {
 	background: #303030;
 }
 
+.btn-toggle {
+   display:flex;
+   padding:0;
+   margin:0;
+   border:0;
+   background:#303030;
+   outline: none;
+   overflow:hidden;
+ }
+
+ .btn-toggle.down-toggle:disabled .fill-up-down {
+  fill: #64552A;
+}
+
 .up-toggle {
 	display: flex;
 }
