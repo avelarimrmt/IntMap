@@ -211,6 +211,7 @@ svg {
 
  .btn-toggle.down-toggle:disabled .fill-up-down {
   fill: #64552A;
+  cursor: default;
 }
 
 .up-toggle {
