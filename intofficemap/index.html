@@ -5,7 +5,10 @@
   <title>Карта офиса</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <link href="css/style.css" rel="stylesheet">
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/fonts/GothamPro/styles.css" rel="stylesheet">
+  <link href="lib/fonts/GothamPro-Black/styles.css" rel="stylesheet">
+  <link href="lib/fonts/GothamPro-Bold/styles.css" rel="stylesheet">
   </head>
 
   <body>
@@ -14,7 +17,7 @@
 		<form action="#" class="search-form">
     		<input id="textInput" type="text" class="search">
     		<div class="btn">
-   				 <button id="searchButton" class="searchButton hover" disabled="disabled" type="submit"><i class="fa fa-search"></i></button>
+   				 <button id="searchButton" disabled type="submit"><i class="fa fa-search"></i></button>
 			</div>
 			<div class="btn">
 				<button id="clearButton" type="submit"><i class="fa fa-times"></i></button>
@@ -28,7 +31,7 @@
   			<div class="map">
 
   				<svg class = "table" width="90" height="82" viewBox="0 0 90 82" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<rect x="90" y="27" width="55" height="90" rx="8" transform="rotate(90 90 27)" fill="#FFC617"/>
+				<rect class="light-table" x="90" y="27" width="55" height="90" rx="8" transform="rotate(90 90 27)" fill="#FFC617"/>
 				<path d="M59 27L32 27V10C32 8.34315 33.3431 7 35 7L56 7C57.6569 7 59 8.34315 59 10V27Z" fill="#616161"/>
 				<ellipse cx="45.5" cy="6" rx="14.5" ry="6" transform="rotate(-180 45.5 6)" fill="#616161"/>
 				<path d="M32 7.5C32 5.01472 38.0442 3 45.5 3C52.9558 3 59 5.01472 59 7.5C59 8.75041 58.47 10.8817 56 11.6972C53.5607 12.5026 49.2046 13 45.5 13C41.7954 13 37.4393 12.5026 35 11.6972C32.53 10.8817 32 8.75041 32 7.5Z" fill="#484848"/>
@@ -38,28 +41,42 @@
 
   				<object data="images/tables.svg" type="image/svg+xml" id="imap" width="864" height="189"></object>
   			</div>	
+
   			<div class="scale-and-floor-wrapper">
   				<div class="scale-and-floor">
  				<div class="items scale">
 
-  				<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M0 5C0 2.23858 2.23858 0 5 0H25C27.7614 0 30 2.23858 30 5V25C30 27.7614 27.7614 30 25 30H5C2.23858 30 0 27.7614 0 25V5Z" fill="#E4E4E4"/>
-				<rect class="line1" x="5" y="17" width="4" height="20" rx="2" transform="rotate(-90 5 17)" fill="#616161"/>
-				<rect class="line2" x="13" y="5" width="4" height="20" rx="2" fill="#616161"/>
+ 				<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M0 5C0 2.23858 2.23858 0 5 0H21C23.7614 0 26 2.23858 26 5V21C26 23.7614 23.7614 26 21 26H5C2.23858 26 0 23.7614 0 21V5Z" fill="#303030"/>
+				<rect class="fill-line" x="4" y="14" width="2" height="18" rx="1" transform="rotate(-90 4 14)" fill="#BCBCBC"/>
+				<rect class="fill-line" x="12" y="4" width="2" height="18" rx="1" fill="#BCBCBC"/>
 				</svg>
-
-				<div class="bar">
-    				<input class="input-range" orient="vertical" type="range" step="0.5" value="3" min="1" max="10">
-				</div>
   				
-  				<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path opacity="0.5" d="M30 25C30 27.7614 27.7614 30 25 30L5 30C2.23858 30 3.8147e-06 27.7614 3.8147e-06 25L3.8147e-06 5C3.8147e-06 2.23858 2.23858 0 5 0L25 0C27.7614 0 30 2.23858 30 5L30 25Z" fill="#E4E4E4"/>
-				<rect class="line1" x="5" y="17" width="4" height="20" rx="2" transform="rotate(-90 5 17)" fill="#616161"/>
+  				<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M26 21C26 23.7614 23.7614 26 21 26L5 26C2.23858 26 0 23.7614 0 21L0 5C0 2.23858 2.23858 0 5 0L21 0C23.7614 0 26 2.23858 26 5L26 21Z" fill="#303030"/>
+				<rect class="fill-line" x="4" y="14" width="2" height="18" rx="1" transform="rotate(-90 4 14)" fill="#BCBCBC"/>
 				</svg>
 
+				<div class="value-scale"><span>75%</span></div>
   				</div>
+
   				<div class="items">
-  				<object data="images/floor.svg" type="image/svg+xml" id="ifloor" width="105" height="149"></object>
+   					<div id="floor">
+   						<div class="up-toggle">
+  							<svg width="57" height="19" viewBox="0 0 57 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path class="fill-up-down" disabled d="M27.5914 0.369337C27.9272 0.145656 28.3645 0.145657 28.7002 0.369337L53.5413 16.9178C54.3648 17.4664 53.9764 18.75 52.9868 18.75H3.30481C2.31523 18.75 1.92682 17.4664 2.75039 16.9178L27.5914 0.369337Z" fill="#FFC617"/>
+							</svg>
+  						</div>
+
+  						<span>16</span>
+
+  						<div class="down-toggle">
+  							<svg width="57" height="19" viewBox="0 0 57 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path class="fill-up-down" d="M29.0543 18.6307C28.7186 18.8543 28.2813 18.8543 27.9455 18.6307L3.10449 2.08224C2.28092 1.5336 2.66932 0.25 3.65891 0.25L53.3409 0.25C54.3305 0.25 54.7189 1.5336 53.8954 2.08224L29.0543 18.6307Z" fill="#FFC617"/>
+							</svg>
+  						</div>
+
+  					</div>
   				</div>
   				</div>
   			</div>
@@ -72,20 +89,17 @@ let inputT = document.getElementById("textInput");
 
 	inputT.oninput =  function() {
 		if (this.value != "") { 
-			button2.style.borderRadius = '0';
-			button2.style.color = '#4B4B4B'; 
-			button1.style.display = 'block';
-			button2.style.outline = 'none';
 			button2.disabled = false; 
+			button2.style.borderRadius = '0';
+			button1.style.display = 'block';
 			}
 		};
   	button1.onclick = function(e) {
     	inputT.value = ""; 
     	button2.style.color = '#E4E4E4';
+    	button2.disabled = true; 
 		button2.style.borderRadius = '0px 10px 10px 0px';
 		button1.style.display = 'none';
-		button2.disabled = true; 
 		}
-
 </script>
 </body>

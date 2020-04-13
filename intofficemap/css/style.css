@@ -1,14 +1,16 @@
 body{
 	margin: 0;
 	padding: 0;
-	font-family: 'Roboto', sans-serif;
-	background-color: #F0F0F0;
+	font-family: 'GothamPro';
+	font-style: normal;
+	font-weight: normal;
+	background-color: #FAFAFA;
 }
 
 header{
 	height: 60px;
 	display: flex;
-	background-color: #484848;
+	background-color: #303030;
 }
 
 .search-wrapper {
@@ -34,7 +36,7 @@ header{
   	padding-left: 18px;
   	border: none;
 	border-radius: 10px 0px 0px 10px; 
-	background-color: #F0F0F0;
+	background-color: #FAFAFA;
   	outline: none;
   	position: relative;
   	transition: .3s linear;
@@ -56,30 +58,16 @@ header{
 	height: 32px;
 	width: 100%;
   	border: none;
-  	background-color: #F0F0F0;
+  	background-color: #FAFAFA;
 	border: none;
 	font-size: 20px;
-}
-
-
-
-#searchButton, #clearButton {
-	border-radius: 0px 10px 10px 0px; 
-
-	cursor: pointer;
-	color: #4B4B4B;
-}
- #clearButton {
-  	display: none;
-}
-
-#searchButton:active, #clearButton:active {
-	color: #E4B218;
 	outline: none;
 }
 
-#searchButton:default:hover, #clearButton:hover {
-	background: #E4E4E4;
+#searchButton, #clearButton {
+	border-radius: 0px 10px 10px 0px; 
+	cursor: pointer;
+	color: #4B4B4B;
 }
 
 #searchButton:disabled {
@@ -87,13 +75,28 @@ header{
 	outline: none;
 	cursor: default;
 }
-#searchButton:disabled:hover {
-	background: #F0F0F0;
-}
-/*#searchButton:hover {
-	background: #F0F0F0;
-}*/
 
+#searchButton:disabled:hover {
+	background: #FAFAFA;
+}
+
+#searchButton:disabled:active {
+	color: #E4E4E4;
+}
+
+ #clearButton {
+  	display: none;
+}
+
+#searchButton:active, #clearButton:active {
+	color: #E4B218;
+	outline: none;
+	background: #E4E4E4;
+}
+
+#searchButton:hover, #clearButton:hover {
+	background: #E4E4E4;
+}
 
 
 .map-wrapper {
@@ -119,7 +122,7 @@ header{
 
 .scale-and-floor-wrapper {
 	display: flex;
-	width: 146px;
+	width: 110px;
 	height: 100%;
 	align-items: flex-end;
 }
@@ -127,84 +130,97 @@ header{
 .scale-and-floor {
 	display: flex;
 	width: 100%;
-	height: 75%;
+	height: 40%;
 	flex-direction: column;
+	justify-content: flex-end;
 }
-
 
 .items {
 	width: 100%;
-	height: 50%;
+	height: 48%;
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	margin: 25px 0;
+	margin: 5px 0;
 }
 
 .items.scale {
-	height: 100%;
-	display: flex;
+	height: 30%;
+	display: flex;	
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
 }
 
-.scale-and-floor-wrapper svg:hover .line1,
-.scale-and-floor-wrapper svg:hover .line2 { 
-  fill: #484848;
-}
-
-.map svg:hover .table { 
-  fill: #616161;
+.value-scale {
+	font-size: 12px;
+	line-height: 11px;
+	color: #303030;
+	cursor: default;
 }
 
 svg {
 	cursor: pointer;
 }
 
-input[type='range'] {
-	overflow: hidden;
-    width: 8px;
-    -webkit-appearance: none;
-    background-color: #616161;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    -webkit-appearance: slider-vertical;
-    writing-mode: bt-lr;      
-    margin: 20px 0;
+.scale-and-floor-wrapper svg:hover .fill-line { 
+  fill: #FFFFFF;
 }
 
-input[type=range]:focus {
-  outline: none;
+.scale-and-floor-wrapper svg:active .fill-line { 
+  fill: #E4B218;
 }
-    
 
-input[type='range']::-webkit-slider-runnable-track {
-    height: 80px;
-    -webkit-appearance: slider-vertical;
-    color: #616161;
-    margin-top: -1px;
+.map svg:hover .light-table { 
+  fill: #E4B218;
 }
-    
-input[type='range']::-webkit-slider-thumb {
-    width: 8px;
-    -webkit-appearance: slider-vertical;
-    height: 18px;
-    cursor: pointer;
-    background: #FFC617;
-    box-shadow: -150px 150px 0 150px #FFC617;
+
+.map svg:active .light-table { 
+  fill: #E4B218;
 }
-    
-input[type="range"]::-moz-range-progress {
-    background-color: #FFC617; 
+
+.map svg:focus .light-table { 
+  fill: #B58F1C;
 }
-input[type="range"]::-moz-range-track {  
-    background-color: #616161;
+
+#floor {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	width: 76px;
+	height: 126px;
+	border-radius: 10px;
+	background: #303030;
 }
-input[type="range"]::-ms-fill-lower {
-    background-color: #FFC617; 
+
+.up-toggle {
+	display: flex;
 }
-input[type="range"]::-ms-fill-upper {  
-    background-color: #616161;
+
+#floor span {
+	font-family: GothamPro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 60px;
+	line-height: 57px;
+	text-align: center;
+	color: #FFC617;
+	cursor: default;
+}
+
+.down-toggle {
+	display: flex;
+}
+
+.items svg:disabled .fill-up-down { 
+  fill: #64552A;
+}
+
+.items svg:hover .fill-up-down { 
+  fill: #E4B218;
+}
+
+.items svg:active .fill-up-down { 
+  fill: #B58F1C;
 }
