@@ -227,7 +227,9 @@ svg.btn-svg {
 }
 
 #floor span {
-	font-family: GothamPro-Bold;
+	font-family: GothamPro;
+	font-style: normal;
+	font-weight: bold;
 	font-size: 60px;
 	line-height: 57px;
 	text-align: center;

@@ -1,9 +1,33 @@
 
 @font-face {
 	font-family: 'GothamPro';
+	font-weight: normal;
+	font-style: normal;
 	src: url('GothamPro.eot?') format('eot'), 
 	     url('GothamPro.otf')  format('opentype'),
 	     url('GothamPro.woff') format('woff'), 
 	     url('GothamPro.ttf')  format('truetype'),
 	     url('GothamPro.svg#GothamPro') format('svg');
 }
+
+@font-face {
+	font-family: 'GothamPro';
+	font-weight: bolder;
+	font-style: normal;
+	src: url('GothamPro-Black.eot?') format('eot'), 
+	     url('GothamPro-Black.otf')  format('opentype'),
+	     url('GothamPro-Black.woff') format('woff'), 
+	     url('GothamPro-Black.ttf')  format('truetype'),
+	     url('GothamPro-Black.svg#GothamPro-Black') format('svg');
+}  
+
+@font-face {
+	font-family: 'GothamPro-Bold';
+	font-weight: bold;
+	font-style: normal;
+	src: url('GothamPro-Bold.eot?') format('eot'), 
+	     url('GothamPro-Bold.otf')  format('opentype'),
+	     url('GothamPro-Bold.woff') format('woff'), 
+	     url('GothamPro-Bold.ttf')  format('truetype'),
+	     url('GothamPro-Bold.svg#GothamPro-Bold') format('svg');
+}  
