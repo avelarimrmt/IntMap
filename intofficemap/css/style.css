@@ -164,7 +164,7 @@ header{
 	background: transparent;
 }
 
-svg {
+svg.btn-svg {
 	cursor: pointer;
 }
 
@@ -176,15 +176,19 @@ svg {
   fill: #E4B218;
 }
 
-.map svg:hover .light-table { 
+.light-table {
+	cursor: pointer;
+}
+
+#vector-map .light-table:hover { 
   fill: #E4B218;
 }
 
-.map svg:active .light-table { 
+#vector-map .light-table:active { 
   fill: #E4B218;
 }
 
-.map svg:focus .light-table { 
+#vector-map .light-table:focus { 
   fill: #B58F1C;
 }
 
@@ -212,6 +216,10 @@ svg {
  .btn-toggle.down-toggle:disabled .fill-up-down {
   fill: #64552A;
   cursor: default;
+}
+
+.fill-up-down {
+	cursor: pointer;
 }
 
 .up-toggle {
