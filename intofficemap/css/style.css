@@ -180,15 +180,15 @@ svg.btn-svg {
 	cursor: pointer;
 }
 
-#vector-map .light-table:hover { 
+.light-table:hover { 
   fill: #E4B218;
 }
 
-#vector-map .light-table:active { 
+.light-table:active { 
   fill: #E4B218;
 }
 
-#vector-map .light-table:focus { 
+.light-table:focus { 
   fill: #B58F1C;
 }
 
