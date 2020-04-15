@@ -28,6 +28,7 @@ header{
 	height: 100%;
 	justify-content: flex-start;
 	align-items: center;
+	flex-direction: row;
 }
 
 #textInput {
@@ -46,12 +47,11 @@ header{
 	width: 505px;
 }
 
-.btn {
+.btn-search-clear {
     display: flex;
     justify-content: center;
 	align-items: center;
 	height: 100%;
-	width: 50px;
 }
 
 #clearButton, #searchButton {
@@ -70,8 +70,8 @@ header{
 	color: #4B4B4B;
 }
 
-#searchButton:disabled {
-	color: #E4E4E4;
+#searchButton:disabled .fill-clear-search {
+	fill: #E4E4E4;
 	outline: none;
 	cursor: default;
 }
@@ -80,8 +80,8 @@ header{
 	background: #FAFAFA;
 }
 
-#searchButton:disabled:active {
-	color: #E4E4E4;
+#searchButton:disabled:active .fill-clear-search {
+	fill: #E4E4E4;
 }
 
  #clearButton {
@@ -89,14 +89,89 @@ header{
 }
 
 #searchButton:active, #clearButton:active {
-	color: #E4B218;
 	outline: none;
 	background: #E4E4E4;
+}
+
+#searchButton:active .fill-clear-search,
+ #clearButton:active .fill-clear-search {
+	fill: #E4B218;
 }
 
 #searchButton:hover, #clearButton:hover {
 	background: #E4E4E4;
 }
+
+/*
+.btn-search-clear {
+    display: flex;
+    justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+	width: 95px;
+	height: 30px;
+}
+
+ #searchButton {
+  	border: none;
+	border: none;
+	outline: none;
+	height: 32px;
+}
+
+#searchButton .fill-clear-searc {
+	border-radius: 0px 10px 10px 0px; 
+	cursor: pointer;
+	fill: #4B4B4B;
+}
+
+#searchButton:disabled .fill-clear-search{
+	fill: #E4E4E4;
+	outline: none;
+	cursor: default;
+}
+
+#searchButton:disabled:hover .back-clear-search {
+	fill: #FAFAFA;
+}
+
+#searchButton:disabled:active .fill-clear-search {
+	fill: #E4E4E4;
+}
+
+#searchButton:active .back-clear-search {
+	
+	outline: none;
+	fill: #E4E4E4;
+}
+
+#searchButton:hover .back-clear-search {
+	fill: #E4E4E4;
+}
+
+ #clearButton {
+  	display: block;
+  	width: 45px;
+  	height: 30px;
+  	background-color: transparent;
+}
+
+.btn-svg:active .fill-clear-search {
+	fill: #E4B218;
+	outline: none;
+	}
+
+.btn-svg:hover .back-clear-search {
+	fill: #E4E4E4;
+}
+
+.btn-svg:active .back-clear-search {
+	fill: #E4E4E4;
+	}
+
+*/
+
+
 
 
 .map-wrapper {
