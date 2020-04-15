@@ -82,10 +82,13 @@ header{
 	color: #4B4B4B;
 }
 
-#searchButton:disabled .fill-clear-search {
-	fill: #E4E4E4;
+#searchButton:disabled svg, #searchButton:disabled {
 	outline: none;
 	cursor: default;
+}	 
+
+#searchButton:disabled .fill-clear-search {
+	fill: #E4E4E4;
 }
 
 #searchButton:disabled:hover {

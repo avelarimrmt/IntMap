@@ -20,6 +20,7 @@
 						<path class="fill-clear-search" d="M33.6377 20.7606L30.3996 17.4688C30.9884 16.2718 31.3809 14.8753 31.3809 13.4788C31.3809 8.79052 27.6522 5 23.0404 5C18.4287 5 14.7 8.79052 14.7 13.4788C14.7 18.1671 18.4287 21.9576 23.0404 21.9576C24.4142 21.9576 25.7879 21.5586 26.9653 20.9601L30.2034 24.2519C31.1846 25.2494 32.6565 25.2494 33.6377 24.2519C34.5208 23.2544 34.5208 21.7581 33.6377 20.7606ZM23.0404 19.9626C19.508 19.9626 16.6625 17.0698 16.6625 13.4788C16.6625 9.88778 19.508 6.99501 23.0404 6.99501C26.5729 6.99501 29.4184 9.88778 29.4184 13.4788C29.4184 17.0698 26.5729 19.9626 23.0404 19.9626Z" fill="#484848"/>
 						</svg> 
 					</button>
+				</div>
 					
 					<div class="br-vert">
 						<svg id="brvert" width="1" height="30" viewBox="0 0 1 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +29,7 @@
 						<rect width="1" height="2" fill="#FAFAFA"/>
 						</svg> 
 					</div>
-
+					<div class="btn-search-clear">
 					<button id="clearButton" class="clear-Button">
 						<svg class="btn-svg"  width="45" height="30" viewBox="0 0 45 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<rect class="fill-clear-search" x="14.2852" y="8.85693" width="2.22222" height="20" transform="rotate(-45 14.2852 8.85693)" fill="#484848"/>
@@ -42,7 +43,7 @@
 
 	<section class="map-wrapper">
 		<div class="map-content">
-			<div class="map">
+			<div class="map" id="map">
 
 					<svg width="1280" height="660" viewBox="0 0 2416 1654" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="2416" height="1654" fill="#D8D8D8" />
@@ -555,18 +556,18 @@
 				<div class="scale-and-floor">
 					<div class="items scale">
 
-						<svg class="btn-svg" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<svg class="btn-svg" id="plus" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M0 5C0 2.23858 2.23858 0 5 0H21C23.7614 0 26 2.23858 26 5V21C26 23.7614 23.7614 26 21 26H5C2.23858 26 0 23.7614 0 21V5Z" fill="#303030"/>
 							<rect class="fill-line" x="4" y="14" width="2" height="18" rx="1" transform="rotate(-90 4 14)" fill="#BCBCBC"/>
 							<rect class="fill-line" x="12" y="4" width="2" height="18" rx="1" fill="#BCBCBC"/>
 						</svg>
 
-						<svg class="btn-svg" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<svg class="btn-svg" id="minus" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M26 21C26 23.7614 23.7614 26 21 26L5 26C2.23858 26 0 23.7614 0 21L0 5C0 2.23858 2.23858 0 5 0L21 0C23.7614 0 26 2.23858 26 5L26 21Z" fill="#303030"/>
 							<rect class="fill-line" x="4" y="14" width="2" height="18" rx="1" transform="rotate(-90 4 14)" fill="#BCBCBC"/>
 						</svg>
 
-						<div class="value-scale"><span>75%</span></div>
+						<div class="value-scale" id="val-scale"><span>75%</span></div>
 					</div>
 
 					<div class="items">
@@ -619,4 +620,5 @@
 			brvert.style.display = 'none';
 		}
 	</script>
+
 </body>
