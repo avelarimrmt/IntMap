@@ -20,7 +20,15 @@
 						<path class="fill-clear-search" d="M33.6377 20.7606L30.3996 17.4688C30.9884 16.2718 31.3809 14.8753 31.3809 13.4788C31.3809 8.79052 27.6522 5 23.0404 5C18.4287 5 14.7 8.79052 14.7 13.4788C14.7 18.1671 18.4287 21.9576 23.0404 21.9576C24.4142 21.9576 25.7879 21.5586 26.9653 20.9601L30.2034 24.2519C31.1846 25.2494 32.6565 25.2494 33.6377 24.2519C34.5208 23.2544 34.5208 21.7581 33.6377 20.7606ZM23.0404 19.9626C19.508 19.9626 16.6625 17.0698 16.6625 13.4788C16.6625 9.88778 19.508 6.99501 23.0404 6.99501C26.5729 6.99501 29.4184 9.88778 29.4184 13.4788C29.4184 17.0698 26.5729 19.9626 23.0404 19.9626Z" fill="#484848"/>
 						</svg> 
 					</button>
-				
+					
+					<div class="br-vert">
+						<svg id="brvert" width="1" height="30" viewBox="0 0 1 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect y="28" width="1" height="2" fill="#FAFAFA"/>
+						<rect y="2" width="1" height="26" fill="#E4E4E4"/>
+						<rect width="1" height="2" fill="#FAFAFA"/>
+						</svg> 
+					</div>
+
 					<button id="clearButton" class="clear-Button">
 						<svg class="btn-svg"  width="45" height="30" viewBox="0 0 45 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<rect class="fill-clear-search" x="14.2852" y="8.85693" width="2.22222" height="20" transform="rotate(-45 14.2852 8.85693)" fill="#484848"/>
@@ -586,18 +594,21 @@
 		let button1 = document.getElementById("clearButton");
 		let button2 = document.getElementById("searchButton");
 		let inputT = document.getElementById("textInput");
+		let brvert = document.getElementById("brvert");
 
 		inputT.oninput =  function() {
 			if (this.value != "") { 
 				button2.disabled = false; 
 				button2.style.borderRadius = '0';
 				button1.style.display = 'block';
+				brvert.style.display = 'block';
 			}
 			else {
 			inputT.value = ""; 
 			button2.disabled = true; 
 			button2.style.borderRadius = '0px 10px 10px 0px';
 			button1.style.display = 'none';
+			brvert.style.display = 'none';
 			}
 		};
 		button1.onclick = function(e) {
@@ -605,6 +616,7 @@
 			button2.disabled = true; 
 			button2.style.borderRadius = '0px 10px 10px 0px';
 			button1.style.display = 'none';
+			brvert.style.display = 'none';
 		}
 	</script>
 </body>

@@ -54,6 +54,18 @@ header{
 	height: 100%;
 }
 
+.br-vert {
+	background-color: #FAFAFA;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	
+}
+
+#brvert {
+	display: none;
+}
+
 #clearButton, #searchButton {
 	height: 32px;
 	width: 100%;
