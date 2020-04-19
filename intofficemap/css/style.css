@@ -346,3 +346,124 @@ svg.btn-svg {
 .items svg:active .fill-up-down { 
   fill: #B58F1C;
 }
+
+
+
+
+.card-wrapper {
+	display: flex;
+	width: 335px;
+	height: 661px;
+	background-color: #484848;
+}
+
+.card {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-direction: column;	
+	padding: 0 17px;
+	font-family: GothamPro;
+	font-style: normal;
+	font-weight: normal;	
+}
+
+.title-card {
+	display: flex;
+	margin: 23px 0;
+	font-size: 18px;
+	color: #FFFFFF;
+}
+
+.employee {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	height: 100%;
+	width: 100%;
+	flex-direction: column;
+	margin-top: 23px; 
+}
+
+.row-emp-1 {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 21px; 
+	justify-content: space-between;
+	width: 100%;
+	align-items: center;
+}
+
+.row-emp-2 {
+	margin-top: 21px; 
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	align-items: flex-start;
+}
+
+.card-fio {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.card-img {
+	display: flex;
+	align-items: flex-end;
+}
+
+
+
+.fio {
+	font-size: 28px;
+	line-height: 27px;
+	color: #FFFFFF;
+}
+
+.avatar-emp {
+  width: 70px;
+  height: 70px;
+  border-radius: 40px; 
+}
+
+.unchanged-emp {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 36%;
+}
+
+.changed-emp {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.change-stroke {
+	font-size: 12px;
+	line-height: 11px;
+	color: #FFFFFF;
+	margin-bottom: 12px;
+}
+
+.unchange-stroke {
+	font-size: 11px;
+	line-height: 11px;
+	color: #999999;
+	display: flex;
+	padding-right: 50px;
+	margin-bottom: 12px;
+}
+
+#overlay {
+    position: fixed;
+    /*display: none;*/
+	width: 335px;
+	height: 661px;
+    top: 60px;
+    left: 0;
+    z-index: 2;
+}
