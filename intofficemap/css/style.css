@@ -117,78 +117,6 @@ header{
 	background: #E4E4E4;
 }
 
-/*
-.btn-search-clear {
-    display: flex;
-    justify-content: flex-start;
-	align-items: center;
-	flex-direction: row;
-	width: 95px;
-	height: 30px;
-}
-
- #searchButton {
-  	border: none;
-	border: none;
-	outline: none;
-	height: 32px;
-}
-
-#searchButton .fill-clear-searc {
-	border-radius: 0px 10px 10px 0px; 
-	cursor: pointer;
-	fill: #4B4B4B;
-}
-
-#searchButton:disabled .fill-clear-search{
-	fill: #E4E4E4;
-	outline: none;
-	cursor: default;
-}
-
-#searchButton:disabled:hover .back-clear-search {
-	fill: #FAFAFA;
-}
-
-#searchButton:disabled:active .fill-clear-search {
-	fill: #E4E4E4;
-}
-
-#searchButton:active .back-clear-search {
-	
-	outline: none;
-	fill: #E4E4E4;
-}
-
-#searchButton:hover .back-clear-search {
-	fill: #E4E4E4;
-}
-
- #clearButton {
-  	display: block;
-  	width: 45px;
-  	height: 30px;
-  	background-color: transparent;
-}
-
-.btn-svg:active .fill-clear-search {
-	fill: #E4B218;
-	outline: none;
-	}
-
-.btn-svg:hover .back-clear-search {
-	fill: #E4E4E4;
-}
-
-.btn-svg:active .back-clear-search {
-	fill: #E4E4E4;
-	}
-
-*/
-
-
-
-
 .map-wrapper {
 	display: flex;
 	height: 660px;
@@ -352,14 +280,14 @@ svg.btn-svg {
 
 .card-wrapper {
 	display: flex;
-	width: 335px;
 	height: 661px;
-	background-color: #484848;
+	
 }
 
 .card {
 	height: 100%;
-	width: 100%;
+	width: 335px;
+	background-color: #484848;
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
@@ -371,10 +299,10 @@ svg.btn-svg {
 }
 
 .title-card {
-	display: flex;
-	margin: 23px 0;
 	font-size: 18px;
 	color: #FFFFFF;
+	display: flex;
+	align-items: center;
 }
 
 .employee {
@@ -460,10 +388,38 @@ svg.btn-svg {
 
 #overlay {
     position: fixed;
-    /*display: none;*/
+    display: none;
 	width: 335px;
 	height: 661px;
     top: 60px;
     left: 0;
     z-index: 2;
+}
+
+.btn-hide {
+	display: flex;
+}
+
+.hide-overlay {
+	background: #484848;
+	border-radius: 3px;
+}
+
+
+.row-emp-3 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	margin: 23px 0;
+}
+
+.close-btn {
+	background: transparent;
+	outline: none;
+	border: none;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
 }
