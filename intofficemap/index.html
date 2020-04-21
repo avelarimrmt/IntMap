@@ -792,6 +792,7 @@
 							phone.textContent = "";
 							floor.textContent = "";
 							noEmp.textContent = "Информация о сотруднике";
+							noEmp.style.margin = "0";
 
 
 							if (id != null) {
@@ -820,6 +821,8 @@
 							else
 							{
 								noEmp.textContent = "Выбранный стол не занят сотрудником";
+
+								noEmp.style.margin = "80px 0 0 0";
 
 								ava.style.display = "none";
 
