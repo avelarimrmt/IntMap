@@ -183,7 +183,7 @@ header{
 }
 
 svg.btn-svg {
-	cursor: pointer;
+	cursor: pointer !important;
 }
 
 .scale-and-floor-wrapper svg:hover .fill-line { 
