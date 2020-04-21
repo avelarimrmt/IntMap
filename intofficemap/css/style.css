@@ -84,7 +84,7 @@ header{
 
 #searchButton:disabled svg, #searchButton:disabled {
 	outline: none;
-	cursor: default;
+	cursor: default !important;
 }	 
 
 #searchButton:disabled .fill-clear-search {
