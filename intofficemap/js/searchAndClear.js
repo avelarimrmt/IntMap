@@ -12,18 +12,23 @@ button1.onclick = function (e) {
     document.getElementById("overlay-2").style.display = "none";
 };
 
-searchInput.oninput = () => setTimeout(async () => await showListOfEmployees(), 300);
+searchInput.oninput = showListOfEmployees;
 
 async function showListOfEmployees() {
     const listOfEmployees = document.getElementById('drop-down');
 
-    clearList(listOfEmployees);
-
     if (searchInput.value === '') {
+        /* очищаем список с задержкой,
+         * задержка нужна при большом количестве событий oninput,
+         * иначе обработчик события oninput с непустой строкой сработает позже
+         */
+        setTimeout(clearList, 500, listOfEmployees);
+
         button2.disabled = true;
         button2.style.borderRadius = '0px 10px 10px 0px';
         button1.style.display = 'none';
         brvert.style.display = 'none';
+
     } else {
         button2.disabled = false;
         button2.style.borderRadius = '0';
