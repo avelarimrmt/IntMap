@@ -1,18 +1,33 @@
 const searchInput = document.getElementById('textInput');
-let button1 = document.getElementById("clearButton");
-let button2 = document.getElementById("searchButton");
-let brvert = document.getElementById("brvert");
+let clearButton = document.getElementById("clearButton");
+let searchButton = document.getElementById("searchButton");
+let buttonsSeparator = document.getElementById("brvert");
 
-button1.onclick = function (e) {
+clearButton.addEventListener('click', clearInput);
+
+function clearInput() {
     searchInput.value = "";
-    button2.disabled = true;
-    button2.style.borderRadius = '0px 10px 10px 0px';
-    button1.style.display = 'none';
-    brvert.style.display = 'none';
-    document.getElementById("overlay-2").style.display = "none";
-};
 
-searchInput.oninput = showListOfEmployees;
+    initializeSearchLine();
+
+    document.getElementById("overlay-2").style.display = "none";
+}
+
+function initializeSearchLine() {
+    searchButton.disabled = true;
+    searchButton.style.borderRadius = '0px 10px 10px 0px';
+    clearButton.style.display = 'none';
+    buttonsSeparator.style.display = 'none';
+}
+
+function showButtonsOnInput() {
+    searchButton.disabled = false;
+    searchButton.style.borderRadius = '0';
+    clearButton.style.display = 'block';
+    buttonsSeparator.style.display = 'block';
+}
+
+searchInput.addEventListener('input', showListOfEmployees);
 
 async function showListOfEmployees() {
     const listOfEmployees = document.getElementById('drop-down');
@@ -24,16 +39,9 @@ async function showListOfEmployees() {
          */
         setTimeout(clearList, 500, listOfEmployees);
 
-        button2.disabled = true;
-        button2.style.borderRadius = '0px 10px 10px 0px';
-        button1.style.display = 'none';
-        brvert.style.display = 'none';
-
+        initializeSearchLine();
     } else {
-        button2.disabled = false;
-        button2.style.borderRadius = '0';
-        button1.style.display = 'block';
-        brvert.style.display = 'block';
+        showButtonsOnInput();
 
         const response = await fetch(
             `https://offficemap.azurewebsites.net/api/employees/starts-with/${searchInput.value}`,
