@@ -783,7 +783,7 @@
         <div class="card">
             <div class="row-emp-3">
                 <span class="title-card">Информация о сотруднике</span>
-                <button class="close-btn" onclick="offTable()">
+                <button class="close-btn">
                     <svg class="btn-svg svg-close" width="15" height="15" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <rect x="0.656738" y="2.07104" width="2" height="18" transform="rotate(-45 0.656738 2.07104)"
@@ -917,25 +917,15 @@
     </div>
 </section>
 
-<script type="text/javascript">
-
-    function offTable() {
-        document.getElementById("overlay").style.display = "none";
-
-        const desks = document.querySelectorAll(".light-table");
-        for (let desk of desks) {
-            //TODO вернуть столам изначальный цвет
-            desk.style.fill = 'blue';
-        }
-    }
-</script>
 
 <script type="text/javascript">
     function onResults() {
         document.getElementById("overlay-2").style.display = "block";
     }
 </script>
+<script type="module" src="js/card.js"></script>
+<script type="module" src="js/clickOnDesk.js"></script>
+<script type="module" src="js/searchAndClear.js"></script>
 
-<script type="text/javascript" src="js/clickOnDesk.js"></script>
-<script type="text/javascript" src="js/searchAndClear.js"></script>
+
 </body>
