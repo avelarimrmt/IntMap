@@ -921,6 +921,12 @@
 
     function offTable() {
         document.getElementById("overlay").style.display = "none";
+
+        const desks = document.querySelectorAll(".light-table");
+        for (let desk of desks) {
+            //TODO вернуть столам изначальный цвет
+            desk.style.fill = 'blue';
+        }
     }
 </script>
 
@@ -931,5 +937,5 @@
 </script>
 
 <script type="text/javascript" src="js/clickOnDesk.js"></script>
-<script  type="text/javascript" src="js/searchAndClear.js"></script>
+<script type="text/javascript" src="js/searchAndClear.js"></script>
 </body>

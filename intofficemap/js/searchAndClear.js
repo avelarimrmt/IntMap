@@ -3,6 +3,8 @@ let clearButton = document.getElementById("clearButton");
 let searchButton = document.getElementById("searchButton");
 let buttonsSeparator = document.getElementById("brvert");
 
+const listOfEmployees = document.getElementById('drop-down');
+
 clearButton.addEventListener('click', clearInput);
 
 function clearInput() {
@@ -11,6 +13,8 @@ function clearInput() {
     initializeSearchLine();
 
     document.getElementById("overlay-2").style.display = "none";
+
+    clearList(listOfEmployees);
 }
 
 function initializeSearchLine() {
@@ -29,8 +33,9 @@ function showButtonsOnInput() {
 
 searchInput.addEventListener('input', showListOfEmployees);
 
+
 async function showListOfEmployees() {
-    const listOfEmployees = document.getElementById('drop-down');
+
 
     if (searchInput.value === '') {
         /* очищаем список с задержкой,
@@ -60,7 +65,11 @@ async function showListOfEmployees() {
                 li.textContent = `${employee.lastName} ${employee.firstName}`;
 
                 listOfEmployees.appendChild(li);
+
+                li.addEventListener('click', () => showCard(employee));
             }
+
+
         }
     }
 }
@@ -71,4 +80,56 @@ function clearList(ul) {
         ul.removeChild(child);
         child = ul.lastElementChild;
     }
+}
+
+
+function showCard(employee) {
+    document.getElementById("overlay").style.display = "block";
+
+    const name = document.querySelector(".first-name");
+    const midName = document.querySelector(".middle-name");
+    const lastName = document.querySelector(".last-name");
+    const direction = document.querySelector(".direction");
+    const position = document.querySelector(".position-emp");
+    const team = document.querySelector(".team");
+    const email = document.querySelector(".mail");
+    const phone = document.querySelector(".phone");
+    const floor = document.querySelector(".floor-emp");
+
+    const ava = document.querySelector(".avatar-emp");
+
+    name.textContent = "";
+    midName.textContent = "";
+    lastName.textContent = "";
+    team.textContent = "";
+    direction.textContent = "";
+    position.textContent = "";
+    email.textContent = "";
+    phone.textContent = "";
+    floor.textContent = "";
+
+    name.textContent = employee.firstName;
+    midName.textContent = employee.middleName;
+    lastName.textContent = employee.lastName;
+    team.textContent = employee.team;
+    direction.textContent = employee.direction;
+    position.textContent = employee.position.name;
+    email.textContent = employee.emailAddress;
+    phone.textContent = employee.phoneNumber;
+    floor.textContent = employee.desk.floorNumber;
+
+    ava.style.display = "block";
+    ava.src = `https://offficemap.azurewebsites.net/photos/${employee.photo.id}.png`;
+
+    const deskId = employee.desk.id;
+
+    for (let desk of desks) {
+        let id = parseInt(desk.getAttribute("data-id"));
+        if (deskId === id) {
+            //TODO сделать фокус стола вместо заливки
+            desk.style.fill = 'red';
+        }
+    }
+
+
 }
