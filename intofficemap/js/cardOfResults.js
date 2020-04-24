@@ -1,10 +1,10 @@
 const cardOfResults = document.getElementById("card-of-results");
+const cardOfNoResults = document.getElementById("card-of-no-results");
 const results = cardOfResults.querySelector('.results');
 
 export function setCardOfResultsAndShow(employees) {
-    cardOfResults.style.display = "block";
-    setCardOfResults(employees);
-
+        cardOfResults.style.display = "block";
+        setCardOfResults(employees);
 }
 
 function setCardOfResults(employees) {
