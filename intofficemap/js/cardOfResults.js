@@ -4,6 +4,7 @@ const results = cardOfResults.querySelector('.results');
 export function setCardOfResultsAndShow(employees) {
     cardOfResults.style.display = "block";
     setCardOfResults(employees);
+
 }
 
 function setCardOfResults(employees) {

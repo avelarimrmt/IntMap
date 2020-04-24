@@ -38,11 +38,24 @@ function clearInput() {
     document.getElementById("card-of-results").style.display = "none";
 
     clearList(listOfEmployees);
+
+    fillAllDesksWithInitialColor();
 }
 
 let searchButton = document.getElementById("searchButton");
 
-searchButton.addEventListener('click', () => setCardOfResultsAndShow(currentEmployees));
+searchButton.addEventListener('click', () => {
+    setCardOfResultsAndShow(currentEmployees);
+    highlightDesksOfEmployees(currentEmployees);
+});
+
+function highlightDesksOfEmployees(employees) {
+    for (let employee of employees) {
+        if (employee.desk !== null) {
+            highlightDeskById(employee.desk.id);
+        }
+    }
+}
 
 
 let currentEmployees;
@@ -126,5 +139,5 @@ function showCard(employee) {
 
     const deskId = employee.desk.id;
     fillAllDesksWithInitialColor();
-    highlightDeskById(deskId, 'B58F1C');
+    highlightDeskById(deskId);
 }

@@ -1,7 +1,7 @@
 import {fillAllDesksWithInitialColor} from './desks.js'
 
 export function openCard() {
-    const card = document.getElementById("overlay");
+    const card = document.getElementById("card-employee");
     card.style.display = 'block';
 }
 
@@ -10,7 +10,7 @@ const closeButton = document.querySelector('.close-btn');
 closeButton.addEventListener('click', closeCard);
 
 function closeCard() {
-    document.getElementById("overlay").style.display = "none";
+    document.getElementById("card-employee").style.display = "none";
 
     fillAllDesksWithInitialColor();
 }

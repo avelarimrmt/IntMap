@@ -415,7 +415,7 @@ svg.btn-svg {
 	margin-bottom: 12px;
 }
 
-#overlay {
+#card-employee {
     position: fixed;
     display: none;
 	width: 335px;
