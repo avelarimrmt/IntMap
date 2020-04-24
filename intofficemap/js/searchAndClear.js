@@ -1,11 +1,29 @@
 import {highlightDeskById} from './desks.js'
-import {openCard} from './card.js'
-import {initializeCard} from './card.js'
-import {setCardWithEmployee} from './card.js'
+import {openCard} from './employeeCard.js'
+import {initializeCard} from './employeeCard.js'
+import {setCardWithEmployee} from './employeeCard.js'
+import {fillAllDesksWithInitialColor} from './desks.js';
+import {setCardOfResultsAndShow} from './cardOfResults.js'
 
 const searchInput = document.getElementById('textInput');
+
+searchInput.addEventListener('blur', hideEmployeesList);
+searchInput.addEventListener('focus', showEmployeesList);
+
+function hideEmployeesList() {
+    setTimeout(() => listOfEmployees.style.display = 'none', 100);
+    searchInput.style.borderBottomLeftRadius = '10px';
+    clearButton.style.borderBottomRightRadius = '10px';
+}
+
+function showEmployeesList() {
+    listOfEmployees.style.display = 'block';
+    searchInput.style.borderBottomLeftRadius = '0';
+    clearButton.style.borderBottomRightRadius = '0';
+}
+
 let clearButton = document.getElementById("clearButton");
-let searchButton = document.getElementById("searchButton");
+
 let buttonsSeparator = document.getElementById("brvert");
 
 const listOfEmployees = document.getElementById('drop-down');
@@ -17,17 +35,27 @@ function clearInput() {
 
     initializeSearchLine();
 
-    document.getElementById("overlay-2").style.display = "none";
+    document.getElementById("card-of-results").style.display = "none";
 
     clearList(listOfEmployees);
 }
 
+let searchButton = document.getElementById("searchButton");
+
+searchButton.addEventListener('click', () => setCardOfResultsAndShow(currentEmployees));
+
+
+let currentEmployees;
+
+
 function initializeSearchLine() {
     searchButton.disabled = true;
-    searchButton.style.borderRadius = '0px 10px 10px 0px';
+    searchButton.style.borderBottomRightRadius = '10px';
+    searchButton.style.borderTopRightRadius = '10px';
+    searchInput.style.borderBottomLeftRadius = '10px';
+
     clearButton.style.display = 'none';
     buttonsSeparator.style.display = 'none';
-    searchInput.style.borderRadius = '10px 0 0 10px';
 }
 
 function showButtonsOnInput() {
@@ -37,10 +65,9 @@ function showButtonsOnInput() {
     buttonsSeparator.style.display = 'block';
 }
 
-searchInput.addEventListener('input', showListOfEmployees);
+searchInput.addEventListener('input', setListOfEmployees);
 
-
-async function showListOfEmployees() {
+async function setListOfEmployees() {
     if (searchInput.value === '') {
         /* очищаем список с задержкой,
          * задержка нужна при большом количестве событий oninput,
@@ -61,6 +88,8 @@ async function showListOfEmployees() {
         if (response.ok === true) {
             const employees = await response.json();
 
+            currentEmployees = employees;
+
             clearList(listOfEmployees);
 
             for (let employee of employees) {
@@ -72,13 +101,15 @@ async function showListOfEmployees() {
 
                 li.addEventListener('click', () => showCard(employee));
             }
-            let a = document.createElement('a');
-            listOfEmployees.appendChild(a);
-            clearButton.style.borderRadius = '0px 10px 0 0';
-            searchInput.style.borderRadius = '10px 0 0 0';
+            let decorationLine = document.createElement('div');
+            listOfEmployees.appendChild(decorationLine);
+
+            clearButton.style.borderBottomRightRadius = '0';
+            searchInput.style.borderBottomLeftRadius = '0';
         }
     }
 }
+
 
 function clearList(datalist) {
     let child = datalist.lastElementChild;
@@ -94,5 +125,6 @@ function showCard(employee) {
     setCardWithEmployee(employee);
 
     const deskId = employee.desk.id;
+    fillAllDesksWithInitialColor();
     highlightDeskById(deskId, 'B58F1C');
 }

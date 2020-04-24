@@ -1,10 +1,10 @@
 import {getAllDesks} from './desks.js'
-import {openCard} from './card.js'
+import {openCard} from './employeeCard.js'
 import {highlightDeskById} from './desks.js';
 import {fillAllDesksWithInitialColor} from './desks.js'
-import {initializeCard} from './card.js'
-import {setCardWithEmployee} from  './card.js'
-import {setCardWithFreeDesk} from  './card.js'
+import {initializeCard} from './employeeCard.js'
+import {setCardWithEmployee} from './employeeCard.js'
+import {setCardWithFreeDesk} from './employeeCard.js'
 
 const desks = getAllDesks();
 for (let desk of desks) {
