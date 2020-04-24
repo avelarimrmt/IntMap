@@ -3,8 +3,21 @@ const cardOfNoResults = document.getElementById("card-of-no-results");
 const results = cardOfResults.querySelector('.results');
 
 export function setCardOfResultsAndShow(employees) {
+    if (employees.length !== 0)
+    {
         cardOfResults.style.display = "block";
         setCardOfResults(employees);
+    }
+    else {
+        cardOfNoResults.style.display = "block";
+    }
+}
+
+const closeButtonNoResults = document.querySelector('.close-btn-no-results');
+closeButtonNoResults.addEventListener('click', closeCardNoResults);
+
+function closeCardNoResults() {
+    document.getElementById("card-of-no-results").style.display = "none";
 }
 
 function setCardOfResults(employees) {
