@@ -49,7 +49,7 @@ function clearInput() {
     initializeSearchLine();
 
     document.getElementById("card-of-results").style.display = "none";
-
+    document.getElementById("card-of-no-results").style.display = "none";
     clearList(listOfEmployees);
 
     fillAllDesksWithInitialColor();
