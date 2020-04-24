@@ -144,7 +144,7 @@ function clearList(datalist) {
 }
 
 function showCard(employee) {
-    openCard();
+    openCard("card-employee");
     initializeCard();
     setCardWithEmployee(employee);
 

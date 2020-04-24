@@ -1,12 +1,11 @@
 import {fillAllDesksWithInitialColor} from './desks.js'
 
-export function openCard() {
-    const card = document.getElementById("card-employee");
+export function openCard(element) {
+    const card = document.getElementById(element);
     card.style.display = 'block';
 }
 
 const closeButton = document.querySelector('.close-btn');
-
 closeButton.addEventListener('click', closeCard);
 
 function closeCard() {
@@ -15,7 +14,13 @@ function closeCard() {
     fillAllDesksWithInitialColor();
 }
 
-const noEmp = document.querySelector(".title-card");
+const closeButtonFreeDesk = document.querySelector('.close-btn-no-emp');
+closeButtonFreeDesk.addEventListener('click', closeCardFreeDesk);
+
+function closeCardFreeDesk() {
+    document.getElementById("card-with-free-table").style.display = "none";
+}
+
 const name = document.querySelector(".first-name");
 const midName = document.querySelector(".middle-name");
 const lastName = document.querySelector(".last-name");
@@ -38,8 +43,6 @@ export function initializeCard() {
     email.textContent = "";
     phone.textContent = "";
     floor.textContent = "";
-    noEmp.textContent = "Информация о сотруднике";
-    noEmp.style.margin = "0";
 }
 
 export function setCardWithEmployee(employee) {
@@ -53,14 +56,5 @@ export function setCardWithEmployee(employee) {
     phone.textContent = employee.phoneNumber;
     floor.textContent = employee.desk.floorNumber;
 
-    ava.style.display = "block";
     ava.src = `https://offficemap.azurewebsites.net/photos/${employee.photo.id}.png`;
-}
-
-export function setCardWithFreeDesk() {
-    noEmp.textContent = "Выбранный стол не занят сотрудником";
-
-    noEmp.style.margin = "80px 0 0 0";
-
-    ava.style.display = "none";
 }

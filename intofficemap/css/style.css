@@ -419,10 +419,6 @@ svg.btn-svg {
     z-index: 2;
 }
 
-#card-with-free-table {
-	display: block;
-}
-
 .card-no-emp {
 	justify-content: flex-start;
 	align-items: center;

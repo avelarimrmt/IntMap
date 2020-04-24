@@ -4,7 +4,6 @@ import {highlightDeskById} from './desks.js';
 import {fillAllDesksWithInitialColor} from './desks.js'
 import {initializeCard} from './employeeCard.js'
 import {setCardWithEmployee} from './employeeCard.js'
-import {setCardWithFreeDesk} from './employeeCard.js'
 
 const desks = getAllDesks();
 for (let desk of desks) {
@@ -14,10 +13,9 @@ for (let desk of desks) {
         let id = desk.getAttribute("data-id");
         highlightDeskById(parseInt(id));
 
-        openCard();
-        initializeCard();
-
         if (id != null) {
+            openCard("card-employee");
+            initializeCard();
             const response = await fetch(`https://offficemap.azurewebsites.net/api/employees/by-desk-id/${id}`, {
                 method: "GET",
                 headers: {"Accept": "application/json"}
@@ -28,7 +26,7 @@ for (let desk of desks) {
                 setCardWithEmployee(employees[0]);
             }
         } else {
-            setCardWithFreeDesk();
+            openCard("card-with-free-table");
         }
     }
 }
