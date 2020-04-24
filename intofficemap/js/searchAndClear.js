@@ -7,8 +7,14 @@ import {setCardOfResultsAndShow} from './cardOfResults.js'
 
 const searchInput = document.getElementById('textInput');
 
-searchInput.addEventListener('blur', hideEmployeesList);
 searchInput.addEventListener('focus', showEmployeesList);
+
+function showEmployeesList() {
+    listOfEmployees.style.display = 'block';
+    searchInput.style.borderBottomLeftRadius = '10px';
+}
+
+searchInput.addEventListener('blur', hideEmployeesList);
 
 function hideEmployeesList() {
     setTimeout(() => listOfEmployees.style.display = 'none', 100);
@@ -16,11 +22,6 @@ function hideEmployeesList() {
     clearButton.style.borderBottomRightRadius = '10px';
 }
 
-function showEmployeesList() {
-    listOfEmployees.style.display = 'block';
-    searchInput.style.borderBottomLeftRadius = '0';
-    clearButton.style.borderBottomRightRadius = '0';
-}
 
 let clearButton = document.getElementById("clearButton");
 
