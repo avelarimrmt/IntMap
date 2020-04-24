@@ -11,7 +11,12 @@ searchInput.addEventListener('focus', showEmployeesList);
 
 function showEmployeesList() {
     listOfEmployees.style.display = 'block';
-    searchInput.style.borderBottomLeftRadius = '10px';
+    clearButton.style.borderBottomRightRadius = '0';
+
+    if (searchInput.value === '')
+        searchInput.style.borderBottomLeftRadius = '10px';
+    else
+        searchInput.style.borderBottomLeftRadius = '0';
 }
 
 searchInput.addEventListener('blur', hideEmployeesList);
@@ -22,6 +27,13 @@ function hideEmployeesList() {
     clearButton.style.borderBottomRightRadius = '10px';
 }
 
+searchInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        searchButton.click();
+        searchInput.blur();
+    }
+});
 
 let clearButton = document.getElementById("clearButton");
 
@@ -58,9 +70,7 @@ function highlightDesksOfEmployees(employees) {
     }
 }
 
-
 let currentEmployees;
-
 
 function initializeSearchLine() {
     searchButton.disabled = true;
