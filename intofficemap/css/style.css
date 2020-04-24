@@ -308,11 +308,10 @@ svg.btn-svg {
 
 .card-wrapper {
 	display: flex;
-	height: 661px;
+	height: 100%;
 }
 
-.card {
-	height: 100%;
+.card, .card-no-emp {
 	width: 335px;
 	background-color: #484848;
 	display: flex;
@@ -410,7 +409,7 @@ svg.btn-svg {
 	margin-bottom: 12px;
 }
 
-#card-employee {
+#card-employee, #card-with-free-table {
     position: fixed;
     display: none;
 	width: 335px;
@@ -418,6 +417,15 @@ svg.btn-svg {
     top: 60px;
     left: 0;
     z-index: 2;
+}
+
+#card-with-free-table {
+	display: block;
+}
+
+.card-no-emp {
+	justify-content: flex-start;
+	align-items: center;
 }
 
 .btn-hide {
@@ -438,7 +446,7 @@ svg.btn-svg {
 	margin: 23px 0;
 }
 
-.close-btn, .close-btn-no-results {
+.close-btn, .close-btn-no-results, .close-btn-no-emp {
 	background: transparent;
 	outline: none;
 	border: none;
@@ -458,17 +466,24 @@ svg.btn-svg {
 	z-index: 2;
 }
 
-#card-of-no-results {
-	display: block;
+.title-free-table {
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 23px;
+	display: flex;
+	text-align: center;
+	color: #FFFFFF;
+	margin-top: 66px;
+	margin-bottom: 43px;
+	cursor: default;
 }
 
 .results-wrapper {
 	display: flex;
-	height: 661px;
+	height: 100%;
 }
 
 .results, .no-results {
-	height: 100%;
 	width: 335px;
 	background-color: #484848;
 	display: flex;
