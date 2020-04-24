@@ -70,6 +70,8 @@ header{
   	outline: none;
   	position: relative;
   	transition: .3s linear;
+	font-size: 18px;
+	line-height: 17px;
 }
 
 #textInput:focus {

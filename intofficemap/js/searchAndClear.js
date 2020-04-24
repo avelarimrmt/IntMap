@@ -58,6 +58,7 @@ function clearInput() {
 let searchButton = document.getElementById("searchButton");
 
 searchButton.addEventListener('click', () => {
+    searchInput.style.color = '#BCBCBC';
     setCardOfResultsAndShow(currentEmployees);
     highlightDesksOfEmployees(currentEmployees);
 });
@@ -92,6 +93,7 @@ function showButtonsOnInput() {
 searchInput.addEventListener('input', setListOfEmployees);
 
 async function setListOfEmployees() {
+    searchInput.style.color = '#000000';
     if (searchInput.value === '') {
         /* очищаем список с задержкой,
          * задержка нужна при большом количестве событий oninput,
@@ -123,7 +125,7 @@ async function setListOfEmployees() {
 
                 listOfEmployees.appendChild(li);
 
-                li.addEventListener('click', () => showCard(employee));
+                li.addEventListener('click', () => showCard(employee, li.textContent));
             }
             let decorationLine = document.createElement('div');
             listOfEmployees.appendChild(decorationLine);
@@ -143,7 +145,9 @@ function clearList(datalist) {
     }
 }
 
-function showCard(employee) {
+function showCard(employee, value) {
+    searchInput.value = value;
+    searchInput.style.color = '#BCBCBC';
     openCard("card-employee");
     initializeCard();
     setCardWithEmployee(employee);
