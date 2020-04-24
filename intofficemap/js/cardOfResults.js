@@ -37,23 +37,25 @@ function setCardOfResults(employees) {
                 teamRes.classList='team-res';
                 teamRes.textContent = 'Команда:';
                 unchangeStroke.appendChild(teamRes);
-
                 const teamDesc = document.createElement('span');
                  teamDesc.classList='team-desc';
                 unchangeStroke.appendChild(teamDesc);
 
-            rowRes.appendChild(unchangeStroke);
+            const unchangeStroke2 = document.createElement('div');
+            unchangeStroke2.classList='unchange-stroke-res';
+            rowRes.appendChild(unchangeStroke2);
+
                 const floorRes = document.createElement('span');
                 floorRes.classList='floor-res';
                 floorRes.textContent = 'Этаж:';
-                unchangeStroke.appendChild(floorRes);
+                unchangeStroke2.appendChild(floorRes);
 
                 const floorNumber = document.createElement('span');
                 floorNumber.classList='floor-number';
-                unchangeStroke.appendChild(floorNumber);
+                unchangeStroke2.appendChild(floorNumber);
 
         const imgRes = document.createElement('div');
-        floorNumber.classList='img-res';
+        imgRes.classList='img-res';
         block.appendChild(imgRes);
             const avatar = document.createElement('img');
             avatar.classList='avatar-res';
