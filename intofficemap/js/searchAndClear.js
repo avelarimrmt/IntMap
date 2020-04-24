@@ -41,8 +41,6 @@ searchInput.addEventListener('input', showListOfEmployees);
 
 
 async function showListOfEmployees() {
-    listOfEmployees.style.display = "none";
-
     if (searchInput.value === '') {
         /* очищаем список с задержкой,
          * задержка нужна при большом количестве событий oninput,
