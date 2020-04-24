@@ -537,10 +537,12 @@ svg.btn-svg {
 	padding: 14px 0;
 }
 
-.block-result:hover {
+.block-result:hover, .block-result:active {
 	background: #444444;
 	cursor: pointer;
 }
+
+
 
 .row-res {
 	display: flex;

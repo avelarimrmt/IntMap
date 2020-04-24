@@ -1,3 +1,6 @@
+import {initializeCard, openCard, setCardWithEmployee} from "./employeeCard.js";
+import {fillAllDesksWithInitialColor, highlightDeskById} from "./desks.js";
+
 const cardOfResults = document.getElementById("card-of-results");
 const cardOfNoResults = document.getElementById("card-of-no-results");
 const results = cardOfResults.querySelector('.results');
@@ -86,6 +89,8 @@ function setCardOfResults(employees) {
         imgRes.appendChild(avatar);
 
         results.appendChild(resultsSeparator.cloneNode(true));
+
+        block.addEventListener('click', () => showCard(employee));
     }
 
     const lastSeparator = results.lastChild;
@@ -98,4 +103,14 @@ function clearCardOfResults() {
         results.removeChild(child);
         child = results.lastElementChild;
     }
+}
+
+function showCard(employee) {
+    openCard("card-employee");
+    initializeCard();
+    setCardWithEmployee(employee);
+
+    const deskId = employee.desk.id;
+    fillAllDesksWithInitialColor();
+    highlightDeskById(deskId);
 }
