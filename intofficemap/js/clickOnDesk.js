@@ -12,7 +12,7 @@ for (let desk of desks) {
         fillAllDesksWithInitialColor();
 
         let id = desk.getAttribute("data-id");
-        highlightDeskById(parseInt(id), 'red');
+        highlightDeskById(parseInt(id), 'B58F1C');
 
         openCard();
         initializeCard();

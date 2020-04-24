@@ -31,12 +31,41 @@ header{
 	flex-direction: row;
 }
 
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+#drop-down {
+	position: absolute;
+	background-color: #EFEFEF;
+	width: 600px;
+	z-index: 1;
+	border-radius: 0 0 20px 20px;
+	top: 16px;
+	padding:0;
+}
+
+#drop-down li, #drop-down a {
+	padding: 8px 18px;
+	text-decoration: none;
+	display: block;
+	font-size: 18px;
+	line-height: 17px;
+}
+
+#drop-down li:hover, #drop-down li:active{
+	background-color: #FAFAFA;
+	cursor: pointer;
+}
+
+
 #textInput {
   	width: 350px;
   	height: 30px;
   	padding-left: 18px;
   	border: none;
-	border-radius: 10px 0px 0px 10px; 
+	border-radius: 10px 0 0 10px;
 	background-color: #FAFAFA;
   	outline: none;
   	position: relative;
@@ -44,7 +73,7 @@ header{
 }
 
 #textInput:focus {
-	width: 505px;
+	width: 463px;
 }
 
 .btn-search-clear {
@@ -100,7 +129,8 @@ header{
 }
 
  #clearButton {
-  	display: none;
+	 display: none;
+	 transition: .3s linear;
 }
 
 #searchButton:active, #clearButton:active {
