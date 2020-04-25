@@ -1,25 +1,28 @@
-import {initializeCard, openCard, setCardWithEmployee, closeCard} from "./employeeCard.js";
+import {initializeCard, openCard, setCardWithEmployee, closeEmployeeCard} from "./employeeCard.js";
 import {fillAllDesksWithInitialColor, highlightDeskById} from "./desks.js";
 
 const cardOfResults = document.getElementById("card-of-results");
 const cardOfNoResults = document.getElementById("card-of-no-results");
 const results = cardOfResults.querySelector('.results');
 
+export function closeCardOfResults() {
+    document.getElementById("card-of-results").style.display = "none";
+}
+
+
 export function setCardOfResultsAndShow(employees) {
-    if (employees.length !== 0)
-    {
+    if (employees.length !== 0) {
         cardOfResults.style.display = "block";
         setCardOfResults(employees);
-    }
-    else {
+    } else {
         cardOfNoResults.style.display = "block";
     }
 }
 
 const closeButtonNoResults = document.querySelector('.close-btn-no-results');
-closeButtonNoResults.addEventListener('click', closeCardNoResults);
+closeButtonNoResults.addEventListener('click', closeCardOfNoResults);
 
-function closeCardNoResults() {
+export function closeCardOfNoResults() {
     document.getElementById("card-of-no-results").style.display = "none";
 }
 
@@ -27,8 +30,8 @@ function setCardOfResults(employees) {
     clearCardOfResults();
 
     const title = document.createElement('span');
-    title.classList='title-res';
-    title.textContent='Результаты поиска';
+    title.classList = 'title-res';
+    title.textContent = 'Результаты поиска';
     results.appendChild(title);
 
     const resultsSeparator = document.createElement('img');
@@ -90,7 +93,10 @@ function setCardOfResults(employees) {
 
         results.appendChild(resultsSeparator.cloneNode(true));
 
-        block.addEventListener('click', () => showCard(employee));
+        block.addEventListener('click', () => {
+           // closeAllCards();
+            showCard(employee);
+        });
     }
 
     const lastSeparator = results.lastChild;
@@ -128,7 +134,12 @@ function showCard(employee) {
 backToResults.addEventListener('click', () => clickBackToResults());
 
 function clickBackToResults() {
-    //показывать карточку результатов и закрывать карточку сотрудника
     cardOfResults.style.display = 'block';
-    closeCard();
+
+    const emp = document.querySelector('.employee');
+    const backToResults = document.querySelector('.back-to-results');
+    backToResults.style.display = 'none';
+    emp.style.marginTop = '28px';
+
+    closeEmployeeCard();
 }

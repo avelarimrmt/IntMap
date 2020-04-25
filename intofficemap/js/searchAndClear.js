@@ -3,7 +3,7 @@ import {openCard} from './employeeCard.js'
 import {initializeCard} from './employeeCard.js'
 import {setCardWithEmployee} from './employeeCard.js'
 import {fillAllDesksWithInitialColor} from './desks.js';
-import {setCardOfResultsAndShow} from './cardOfResults.js'
+import {setCardOfResultsAndShow, closeCardOfResults, closeCardOfNoResults} from './cardOfResults.js'
 
 const searchInput = document.getElementById('textInput');
 
@@ -27,7 +27,7 @@ function hideEmployeesList() {
     clearButton.style.borderBottomRightRadius = '10px';
 }
 
-searchInput.addEventListener("keydown", function(event) {
+searchInput.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         event.preventDefault();
         searchButton.click();
@@ -48,8 +48,8 @@ function clearInput() {
 
     initializeSearchLine();
 
-    document.getElementById("card-of-results").style.display = "none";
-    document.getElementById("card-of-no-results").style.display = "none";
+    closeCardOfResults();
+    closeCardOfNoResults();
     clearList(listOfEmployees);
 
     fillAllDesksWithInitialColor();
@@ -148,6 +148,7 @@ function clearList(datalist) {
 function showCard(employee, value) {
     searchInput.value = value;
     searchInput.style.color = '#BCBCBC';
+
     openCard("card-employee");
     initializeCard();
     setCardWithEmployee(employee);
