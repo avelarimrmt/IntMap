@@ -262,7 +262,7 @@ svg.btn-svg {
    overflow:hidden;
  }
 
- .btn-toggle.down-toggle:disabled .fill-up-down {
+ .btn-toggle:disabled .fill-up-down {
   fill: #64552A;
   cursor: default;
 }
@@ -275,7 +275,7 @@ svg.btn-svg {
 	display: flex;
 }
 
-#floor span {
+#floor-number{
 	font-style: normal;
 	font-weight: bold;
 	font-size: 60px;
@@ -285,7 +285,15 @@ svg.btn-svg {
 	cursor: default;
 }
 
-#floor span::selection {
+.floor-of-map {
+	display: none;
+}
+
+[data-floor=active] {
+	display: block;
+}
+
+#floor-number::selection {
 	background: transparent;
 }
 
