@@ -301,15 +301,15 @@ svg.btn-svg {
 	display: flex;
 }
 
-.items svg:disabled .fill-up-down { 
+.items svg:disabled .fill-up-down {
   fill: #64552A;
 }
 
-.items svg:hover .fill-up-down { 
+.fill-up-down:hover {
   fill: #E4B218;
 }
 
-.items svg:active .fill-up-down { 
+.fill-up-down:active {
   fill: #B58F1C;
 }
 
