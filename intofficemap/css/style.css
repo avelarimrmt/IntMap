@@ -325,11 +325,31 @@ svg.btn-svg {
 	font-weight: normal;	
 }
 
+.row-emp-3 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 23px;
+	margin-bottom: 14px;
+}
+
 .title-card {
 	font-size: 18px;
 	color: #FFFFFF;
 	display: flex;
 	align-items: center;
+}
+
+.back-to-results {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 11px;
+	color: #FFC617;
+	margin-bottom: 17px;
+	display: none;
+	cursor: pointer;
 }
 
 .employee {
@@ -339,7 +359,7 @@ svg.btn-svg {
 	height: 100%;
 	width: 100%;
 	flex-direction: column;
-	margin-top: 23px; 
+	margin-top: 28px;
 }
 
 .row-emp-1 {
@@ -433,15 +453,6 @@ svg.btn-svg {
 .hide-overlay {
 	background: #484848;
 	border-radius: 3px;
-}
-
-
-.row-emp-3 {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	width: 100%;
-	margin: 23px 0;
 }
 
 .close-btn, .close-btn-no-results, .close-btn-no-emp {
@@ -541,8 +552,6 @@ svg.btn-svg {
 	background: #444444;
 	cursor: pointer;
 }
-
-
 
 .row-res {
 	display: flex;

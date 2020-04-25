@@ -1,4 +1,4 @@
-import {initializeCard, openCard, setCardWithEmployee} from "./employeeCard.js";
+import {initializeCard, openCard, setCardWithEmployee, closeCard} from "./employeeCard.js";
 import {fillAllDesksWithInitialColor, highlightDeskById} from "./desks.js";
 
 const cardOfResults = document.getElementById("card-of-results");
@@ -105,7 +105,17 @@ function clearCardOfResults() {
     }
 }
 
+const emp = document.querySelector('.employee');
+const backToResults = document.querySelector('.back-to-results');
+
 function showCard(employee) {
+    //показывать назад к результатам и менять margin-top у results по клику
+    backToResults.style.display = 'block';
+    emp.style.marginTop = '0';
+
+    //скрывать карточку результатов
+    cardOfResults.style.display = 'none';
+
     openCard("card-employee");
     initializeCard();
     setCardWithEmployee(employee);
@@ -113,4 +123,12 @@ function showCard(employee) {
     const deskId = employee.desk.id;
     fillAllDesksWithInitialColor();
     highlightDeskById(deskId);
+}
+
+backToResults.addEventListener('click', () => clickBackToResults());
+
+function clickBackToResults() {
+    //показывать карточку результатов и закрывать карточку сотрудника
+    cardOfResults.style.display = 'block';
+    closeCard();
 }

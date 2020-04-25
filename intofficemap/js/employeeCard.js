@@ -8,10 +8,15 @@ export function openCard(element) {
 const closeButton = document.querySelector('.close-btn');
 closeButton.addEventListener('click', closeCard);
 
-function closeCard() {
+export function closeCard() {
     document.getElementById("card-employee").style.display = "none";
 
     fillAllDesksWithInitialColor();
+
+    const emp = document.querySelector('.employee');
+    const backToResults = document.querySelector('.back-to-results');
+    backToResults.style.display = 'none';
+    emp.style.marginTop = '28px';
 }
 
 const closeButtonFreeDesk = document.querySelector('.close-btn-no-emp');
