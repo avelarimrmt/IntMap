@@ -5,6 +5,7 @@ body {
     font-style: normal;
     font-weight: normal;
     background-color: #D8D8D8;
+	height: 100vh;
 }
 
 header {
@@ -15,7 +16,7 @@ header {
 
 .search-wrapper {
     display: flex;
-    width: 600px;
+    width: 100%;
     height: 100%;
     justify-content: flex-start;
     align-items: center;
@@ -148,6 +149,10 @@ header {
     background: #E4E4E4;
 }
 
+/*@media screen and (min-width:800px) and (max-width:1080px) {
+
+}
+
 @media screen and (min-device-height: 720px) {
     .map-wrapper {
         height: 660px;
@@ -164,10 +169,11 @@ header {
     .map-wrapper {
         height: 720px;
     }
-}
+}*/
 
 .map-wrapper {
     display: flex;
+	height: 100%;
 }
 
 .map-content {
@@ -186,7 +192,7 @@ header {
     align-items: center;
 }
 
-.scale-and-floor-wrapper {
+/*.scale-and-floor-wrapper {
     display: flex;
     width: 110px;
     height: 100%;
@@ -199,9 +205,9 @@ header {
     height: 100%;
     flex-direction: column;
     justify-content: flex-end;
-}
+}*/
 
-.items {
+/*.items {
     width: 100%;
     height: 100%;
     display: flex;
@@ -228,19 +234,19 @@ header {
 
 .value-scale span::selection {
     background: transparent;
-}
+}*/
 
 svg.btn-svg {
     cursor: pointer !important;
 }
 
-.scale-and-floor-wrapper svg:hover .fill-line {
+/*.scale-and-floor-wrapper svg:hover .fill-line {
     fill: #FFFFFF;
 }
 
 .scale-and-floor-wrapper svg:active .fill-line {
     fill: #E4B218;
-}
+}*/
 
 .light-table {
     cursor: pointer;
@@ -258,6 +264,13 @@ svg.btn-svg {
     fill: #B58F1C;
 }
 
+.floor-wrapper {
+	display: flex;
+	width: 110px;
+	height: 100%;
+	align-items: flex-end;
+}
+
 #floor {
     display: flex;
     flex-direction: column;
@@ -267,6 +280,7 @@ svg.btn-svg {
     height: 126px;
     border-radius: 10px;
     background: #303030;
+	margin-bottom: 26px;
 }
 
 .btn-toggle {
