@@ -1,30 +1,46 @@
-import {initializeCard, openCard, setCardWithEmployee, closeEmployeeCard} from "./employeeCard.js";
+import {initializeCard, setCardWithEmployee, closeEmployeeCard} from "./employeeCard.js";
 import {fillAllDesksWithInitialColor, highlightDeskById} from "./desks.js";
+import {closeAllCards} from "./allCards.js";
+import {openEmployeeCard} from "./employeeCard.js";
 
 const cardOfResults = document.getElementById("card-of-results");
-const cardOfNoResults = document.getElementById("card-of-no-results");
-const results = cardOfResults.querySelector('.results');
+
+function openCardOfResults() {
+    cardOfResults.style.display = "block";
+}
 
 export function closeCardOfResults() {
     document.getElementById("card-of-results").style.display = "none";
 }
 
+const cardOfNoResults = document.getElementById("card-of-no-results");
 
-export function setCardOfResultsAndShow(employees) {
-    if (employees.length !== 0) {
-        cardOfResults.style.display = "block";
-        setCardOfResults(employees);
-    } else {
-        cardOfNoResults.style.display = "block";
-    }
+function openCardOfNoResults() {
+    cardOfNoResults.style.display = "block";
+}
+
+export function closeCardOfNoResults() {
+    cardOfNoResults.style.display = "none";
 }
 
 const closeButtonNoResults = document.querySelector('.close-btn-no-results');
+
 closeButtonNoResults.addEventListener('click', closeCardOfNoResults);
 
-export function closeCardOfNoResults() {
-    document.getElementById("card-of-no-results").style.display = "none";
+
+
+export function setCardOfResultsAndShow(employees) {
+    closeAllCards();
+
+    if (employees.length !== 0) {
+        openCardOfResults();
+        setCardOfResults(employees);
+    } else {
+        openCardOfNoResults();
+    }
 }
+
+const results = cardOfResults.querySelector('.results');
 
 function setCardOfResults(employees) {
     clearCardOfResults();
@@ -94,7 +110,7 @@ function setCardOfResults(employees) {
         results.appendChild(resultsSeparator.cloneNode(true));
 
         block.addEventListener('click', () => {
-           // closeAllCards();
+            closeAllCards();
             showCard(employee);
         });
     }
@@ -119,10 +135,7 @@ function showCard(employee) {
     backToResults.style.display = 'block';
     emp.style.marginTop = '0';
 
-    //скрывать карточку результатов
-    cardOfResults.style.display = 'none';
-
-    openCard("card-employee");
+    openEmployeeCard();
     initializeCard();
     setCardWithEmployee(employee);
 

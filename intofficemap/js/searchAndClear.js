@@ -1,9 +1,10 @@
 import {highlightDeskById} from './desks.js'
-import {openCard} from './employeeCard.js'
 import {initializeCard} from './employeeCard.js'
 import {setCardWithEmployee} from './employeeCard.js'
 import {fillAllDesksWithInitialColor} from './desks.js';
 import {setCardOfResultsAndShow, closeCardOfResults, closeCardOfNoResults} from './cardOfResults.js'
+import {closeAllCards} from "./allCards.js";
+import {openEmployeeCard} from "./employeeCard.js";
 
 const searchInput = document.getElementById('textInput');
 
@@ -149,7 +150,9 @@ function showCard(employee, value) {
     searchInput.value = value;
     searchInput.style.color = '#BCBCBC';
 
-    openCard("card-employee");
+    closeAllCards();
+
+    openEmployeeCard();
     initializeCard();
     setCardWithEmployee(employee);
 

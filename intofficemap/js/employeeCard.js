@@ -1,30 +1,35 @@
 import {fillAllDesksWithInitialColor} from './desks.js'
-import {closeAllCards} from './allCards.js'
 
-export function openCard(element) {
-    closeAllCards();
+const employeeCard = document.getElementById("card-employee");
 
-    const card = document.getElementById(element);
-    card.style.display = 'block';
+export function openEmployeeCard() {
+    employeeCard.style.display = "block";
 }
 
+export function closeEmployeeCard() {
+    employeeCard.style.display = "none";
+}
+
+
 const closeButton = document.querySelector('.close-btn');
+
 closeButton.addEventListener('click', () => {
     closeEmployeeCard();
     fillAllDesksWithInitialColor();
-
 });
 
-export function closeEmployeeCard() {
-    document.getElementById("card-employee").style.display = "none";
+const cardWithFreeDesk = document.getElementById("card-with-free-table");
+
+export function openCardFreeDesk() {
+    cardWithFreeDesk.style.display = "block";
+}
+
+export function closeCardFreeDesk() {
+    cardWithFreeDesk.style.display = "none";
 }
 
 const closeButtonFreeDesk = document.querySelector('.close-btn-no-emp');
 closeButtonFreeDesk.addEventListener('click', closeCardFreeDesk);
-
-export function closeCardFreeDesk() {
-    document.getElementById("card-with-free-table").style.display = "none";
-}
 
 const name = document.querySelector(".first-name");
 const midName = document.querySelector(".middle-name");
