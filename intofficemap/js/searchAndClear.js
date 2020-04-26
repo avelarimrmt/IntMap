@@ -39,6 +39,10 @@ searchInput.addEventListener("keydown", function (event) {
     }
 });
 
+function clearSearchInput() {
+    searchInput.value = '';
+}
+
 let clearButton = document.getElementById("clearButton");
 
 let buttonsSeparator = document.getElementById("brvert");
@@ -47,8 +51,8 @@ const listOfEmployees = document.getElementById('drop-down');
 
 clearButton.addEventListener('click', clearInput);
 
-function clearInput() {
-    searchInput.value = "";
+export function clearInput() {
+    clearSearchInput();
 
     initializeSearchLine();
     unDisplayHideButton();
@@ -66,7 +70,6 @@ searchButton.addEventListener('click', () => {
     setCardOfResultsAndShow(currentEmployees);
 
 });
-
 
 
 let currentEmployees;

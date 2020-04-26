@@ -1,5 +1,6 @@
 import {fillAllDesksWithInitialColor} from './desks.js'
 import {unDisplayHideButton} from "./hideAndShowButton.js";
+import {clearInput} from "./searchAndClear.js";
 
 const employeeCard = document.getElementById("card-employee");
 
@@ -18,6 +19,7 @@ closeButton.addEventListener('click', () => {
     closeEmployeeCard();
     fillAllDesksWithInitialColor();
     unDisplayHideButton();
+    clearInput();
 });
 
 const cardWithFreeDesk = document.getElementById("card-with-free-table");
