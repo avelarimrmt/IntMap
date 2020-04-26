@@ -2,9 +2,10 @@ import {initializeCard, setCardWithEmployee, closeEmployeeCard} from "./employee
 import {fillAllDesksWithInitialColor, highlightDeskById} from "./desks.js";
 import {closeAllCards} from "./allCards.js";
 import {openEmployeeCard} from "./employeeCard.js";
-import {displayHideButton, unDisplayHideButton, displayShowButton, unDisplayShowButton} from "./hideAndShowButton.js";
+import {displayHideButton, unDisplayHideButton} from "./hideAndShowButton.js";
 import {updateCurrentCard} from "./allCards.js";
 import {clearInput} from "./searchAndClear.js";
+import {showFloorWithFloorNumber} from "./floorSwitching.js";
 
 const cardOfResults = document.getElementById("card-of-results");
 
@@ -134,6 +135,10 @@ function setCardOfResults(employees) {
 
         block.addEventListener('click', () => {
             closeAllCards();
+
+            if (employee.desk !== null)
+                showFloorWithFloorNumber(parseInt(employee.desk.floorNumber));
+
             showCard(employee);
         });
     }
@@ -150,8 +155,6 @@ function clearCardOfResults() {
     }
 }
 
-const emp = document.querySelector('.employee');
-const backToResults = document.querySelector('.back-to-results');
 
 function showCard(employee) {
     //показывать назад к результатам и менять margin-top у results по клику
@@ -168,10 +171,14 @@ function showCard(employee) {
     highlightDeskById(deskId);
 }
 
+const emp = document.querySelector('.employee');
+const backToResults = document.querySelector('.back-to-results');
+
 backToResults.addEventListener('click', () => clickBackToResults());
 
 function clickBackToResults() {
     openCardOfResults();
+    updateCurrentCard(cardOfResults);
     displayHideButton();
 
     const emp = document.querySelector('.employee');

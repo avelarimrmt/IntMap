@@ -13,9 +13,9 @@ function setFloorNumber(floor) {
 
 setFloorNumber(currentFloor);
 
-buttonUp.addEventListener('click', clickOnButtonUp);
+buttonUp.addEventListener('click', upFloor);
 
-function clickOnButtonUp() {
+function upFloor() {
     //сменить на следующий спан floorNumbers(присвоить спану атрибут active)
     //если конец спанов, то сделать кнопку buttonUp disabled
     //убрать disabled у кнопки buttonDown
@@ -40,9 +40,9 @@ function clickOnButtonUp() {
     }
 }
 
-buttonDown.addEventListener('click', clickOnButtonDown);
+buttonDown.addEventListener('click', downFloor);
 
-function clickOnButtonDown() {
+function downFloor() {
     if (currentFloor === minFloor)
         buttonDown.disabled = true;
     else {
@@ -61,4 +61,13 @@ function clickOnButtonDown() {
         if (currentFloor === minFloor)
             buttonDown.disabled = true;
     }
+}
+
+export function showFloorWithFloorNumber(floorNumber) {
+    if (currentFloor > floorNumber)
+        while (currentFloor !== floorNumber)
+            downFloor();
+    else if (currentFloor < floorNumber)
+        while (currentFloor !== floorNumber)
+            upFloor();
 }

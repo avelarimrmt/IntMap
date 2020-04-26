@@ -8,6 +8,7 @@ import {openEmployeeCard} from "./employeeCard.js";
 import {displayHideButton} from "./hideAndShowButton.js";
 import {unDisplayHideButton} from "./hideAndShowButton.js";
 import {updateCurrentCard} from "./allCards.js";
+import {showFloorWithFloorNumber} from "./floorSwitching.js";
 
 const searchInput = document.getElementById('textInput');
 
@@ -126,7 +127,11 @@ async function setListOfEmployees() {
 
                 listOfEmployees.appendChild(li);
 
-                li.addEventListener('click', () => showCard(employee, li.textContent));
+                li.addEventListener('click', () => {
+                    if (employee.desk !== null)
+                        showFloorWithFloorNumber(parseInt(employee.desk.floorNumber));
+                    showCard(employee, li.textContent);
+                });
             }
             let decorationLine = document.createElement('div');
             listOfEmployees.appendChild(decorationLine);
