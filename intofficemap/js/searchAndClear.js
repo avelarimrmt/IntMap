@@ -61,16 +61,10 @@ let searchButton = document.getElementById("searchButton");
 searchButton.addEventListener('click', () => {
     searchInput.style.color = '#BCBCBC';
     setCardOfResultsAndShow(currentEmployees);
-    highlightDesksOfEmployees(currentEmployees);
+
 });
 
-function highlightDesksOfEmployees(employees) {
-    for (let employee of employees) {
-        if (employee.desk !== null) {
-            highlightDeskById(employee.desk.id);
-        }
-    }
-}
+
 
 let currentEmployees;
 

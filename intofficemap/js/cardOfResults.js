@@ -28,15 +28,28 @@ const closeButtonNoResults = document.querySelector('.close-btn-no-results');
 closeButtonNoResults.addEventListener('click', closeCardOfNoResults);
 
 
-
 export function setCardOfResultsAndShow(employees) {
     closeAllCards();
 
     if (employees.length !== 0) {
         openCardOfResults();
         setCardOfResults(employees);
+        fillAllDesksWithInitialColor();
+        highlightDesksOfEmployees(employees);
     } else {
         openCardOfNoResults();
+    }
+}
+
+let highlightedDesksIds = [];
+
+function highlightDesksOfEmployees(employees) {
+    highlightedDesksIds = [];
+    for (let employee of employees) {
+        if (employee.desk !== null) {
+            highlightDeskById(employee.desk.id);
+            highlightedDesksIds.push(employee.desk.id);
+        }
     }
 }
 
@@ -147,7 +160,7 @@ function showCard(employee) {
 backToResults.addEventListener('click', () => clickBackToResults());
 
 function clickBackToResults() {
-    cardOfResults.style.display = 'block';
+    openCardOfResults();
 
     const emp = document.querySelector('.employee');
     const backToResults = document.querySelector('.back-to-results');
@@ -155,4 +168,8 @@ function clickBackToResults() {
     emp.style.marginTop = '28px';
 
     closeEmployeeCard();
+
+    for (let deskId of highlightedDesksIds) {
+        highlightDeskById(deskId);
+    }
 }
