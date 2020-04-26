@@ -12,6 +12,10 @@ import {showFloorWithFloorNumber} from "./floorSwitching.js";
 
 const searchInput = document.getElementById('textInput');
 
+export function getInputValue() {
+    return searchInput.value;
+}
+
 searchInput.addEventListener('focus', showEmployeesList);
 
 function showEmployeesList() {

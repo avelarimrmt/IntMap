@@ -6,6 +6,7 @@ import {displayHideButton, unDisplayHideButton} from "./hideAndShowButton.js";
 import {updateCurrentCard} from "./allCards.js";
 import {clearInput} from "./searchAndClear.js";
 import {showFloorWithFloorNumber} from "./floorSwitching.js";
+import {getInputValue} from "./searchAndClear.js";
 
 const cardOfResults = document.getElementById("card-of-results");
 
@@ -29,7 +30,7 @@ export function closeCardOfNoResults() {
 
 const closeButtonNoResults = document.querySelector('.close-btn-no-results');
 
-closeButtonNoResults.addEventListener('click',() =>  {
+closeButtonNoResults.addEventListener('click', () => {
     closeCardOfNoResults();
     clearInput();
 });
@@ -85,10 +86,45 @@ function setCardOfResults(employees) {
         const rowRes = document.createElement('div');
         rowRes.classList = 'row-res';
         block.appendChild(rowRes);
-        const name = document.createElement('span');
-        name.classList = 'res-name';
-        name.textContent = `${employee.lastName} ${employee.firstName}`;
-        rowRes.appendChild(name);
+
+        const inputValue = getInputValue();
+
+        const lastName = document.createElement('div');
+        lastName.classList = 'res-name';
+
+        const highlightedLastName = document.createElement('span');
+        highlightedLastName.classList = 'highlighted-name';
+        const restLastName = document.createElement('span');
+
+        if (employee.lastName.toLowerCase().startsWith(inputValue.toLowerCase())) {
+            highlightedLastName.textContent = inputValue[0].toUpperCase() + inputValue.slice(1).toLowerCase();
+            restLastName.textContent = employee.lastName.replace(highlightedLastName.textContent, '');
+        } else {
+            restLastName.textContent = employee.lastName;
+        }
+
+        restLastName.textContent += ' ';
+
+        const firstName = document.createElement('div');
+        firstName.classList = 'res-name';
+
+        const highlightedFirstName = document.createElement('span');
+        highlightedFirstName.classList = 'highlighted-name';
+        const restFirstName = document.createElement('span');
+
+        if (employee.firstName.toLowerCase().startsWith(inputValue.toLowerCase())) {
+            highlightedFirstName.textContent = inputValue[0].toUpperCase() + inputValue.slice(1).toLowerCase();
+            restFirstName.textContent = employee.firstName.replace(highlightedFirstName.textContent, '');
+        } else {
+            restFirstName.textContent = employee.firstName;
+        }
+
+        rowRes.appendChild(lastName);
+        lastName.appendChild(highlightedLastName);
+        lastName.appendChild(restLastName);
+        rowRes.appendChild(firstName);
+        lastName.appendChild(highlightedFirstName);
+        lastName.appendChild(restFirstName);
 
         const position = document.createElement('span');
         position.classList = 'res-pos';
@@ -154,7 +190,6 @@ function clearCardOfResults() {
         child = results.lastElementChild;
     }
 }
-
 
 function showCard(employee) {
     //показывать назад к результатам и менять margin-top у results по клику
