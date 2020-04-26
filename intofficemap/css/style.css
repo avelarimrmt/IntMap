@@ -154,6 +154,9 @@ header{
 @media screen and (min-device-height: 1080px) {
 	.map-wrapper {height: 1020px;}
 }
+@media screen and (min-device-height: 900px) {
+	.map-wrapper {height: 820px;}
+}
 
 .map-wrapper {
 	display: flex;
