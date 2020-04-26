@@ -1,7 +1,7 @@
 body{
 	margin: 0;
 	padding: 0;
-	font-family: 'GothamPro';
+	font-family: 'GothamPro', serif;
 	font-style: normal;
 	font-weight: normal;
 	background-color: #D8D8D8;
@@ -229,8 +229,8 @@ svg.btn-svg {
 	cursor: pointer;
 }
 
-.light-table:hover { 
-  fill: #E4B218;
+.light-table.hover {
+	fill: #E4B218;
 }
 
 .light-table:active { 
