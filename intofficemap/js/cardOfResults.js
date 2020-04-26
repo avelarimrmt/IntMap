@@ -4,6 +4,7 @@ import {closeAllCards} from "./allCards.js";
 import {openEmployeeCard} from "./employeeCard.js";
 import {displayHideButton, unDisplayHideButton, displayShowButton, unDisplayShowButton} from "./hideAndShowButton.js";
 import {updateCurrentCard} from "./allCards.js";
+import {clearInput} from "./searchAndClear.js";
 
 const cardOfResults = document.getElementById("card-of-results");
 
@@ -30,6 +31,7 @@ const closeButtonNoResults = document.querySelector('.close-btn-no-results');
 closeButtonNoResults.addEventListener('click',() =>  {
     closeCardOfNoResults();
     unDisplayHideButton();
+    clearInput();
 });
 
 
