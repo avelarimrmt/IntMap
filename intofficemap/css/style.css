@@ -148,9 +148,18 @@ header{
 	background: #E4E4E4;
 }
 
+@media screen and (min-device-height: 720px) {
+	.map-wrapper {height: 660px;}
+}
+@media screen and (min-device-height: 1080px) {
+	.map-wrapper {height: 1020px;}
+}
+@media screen and (min-device-height: 900px) {
+	.map-wrapper {height: 720px;}
+}
+
 .map-wrapper {
 	display: flex;
-	height: 660px;
 }
 
 .map-content {
@@ -179,17 +188,17 @@ header{
 .scale-and-floor {
 	display: flex;
 	width: 100%;
-	height: 40%;
+	height: 100%;
 	flex-direction: column;
 	justify-content: flex-end;
 }
 
 .items {
 	width: 100%;
-	height: 48%;
+	height: 100%;
 	display: flex;
 	justify-content: center;
-	align-items: flex-start;
+	align-items: flex-end;
 	margin: 5px 0;
 }
 
