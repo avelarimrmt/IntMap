@@ -31,17 +31,17 @@ const closeButtonNoResults = document.querySelector('.close-btn-no-results');
 
 closeButtonNoResults.addEventListener('click',() =>  {
     closeCardOfNoResults();
-    unDisplayHideButton();
     clearInput();
 });
 
 
 export function setCardOfResultsAndShow(employees) {
     closeAllCards();
-    displayHideButton();
+
 
     if (employees.length !== 0) {
         openCardOfResults();
+        displayHideButton();
         updateCurrentCard(cardOfResults);
         setCardOfResults(employees);
         fillAllDesksWithInitialColor();
