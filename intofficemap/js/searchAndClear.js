@@ -5,6 +5,9 @@ import {fillAllDesksWithInitialColor} from './desks.js';
 import {setCardOfResultsAndShow, closeCardOfResults, closeCardOfNoResults} from './cardOfResults.js'
 import {closeAllCards} from "./allCards.js";
 import {openEmployeeCard} from "./employeeCard.js";
+import {displayHideButton} from "./hideAndShowButton.js";
+import {unDisplayHideButton} from "./hideAndShowButton.js";
+import {updateCurrentCard} from "./allCards.js";
 
 const searchInput = document.getElementById('textInput');
 
@@ -48,7 +51,7 @@ function clearInput() {
     searchInput.value = "";
 
     initializeSearchLine();
-
+    unDisplayHideButton();
     closeCardOfResults();
     closeCardOfNoResults();
     clearList(listOfEmployees);
@@ -147,6 +150,8 @@ function showCard(employee, value) {
     closeAllCards();
 
     openEmployeeCard();
+    updateCurrentCard(document.getElementById("card-employee"));
+    displayHideButton();
     initializeCard();
     setCardWithEmployee(employee);
 

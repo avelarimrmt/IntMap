@@ -7,3 +7,13 @@ export function closeAllCards() {
     closeCardOfResults();
     closeCardOfNoResults();
 }
+
+let currentCard;
+
+export function updateCurrentCard(card) {
+    currentCard = card;
+}
+
+export function getCurrentCard() {
+    return currentCard;
+}

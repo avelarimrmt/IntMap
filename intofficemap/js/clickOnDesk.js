@@ -6,6 +6,8 @@ import {setCardWithEmployee} from './employeeCard.js'
 import {closeAllCards} from "./allCards.js";
 import {openEmployeeCard} from "./employeeCard.js";
 import {openCardFreeDesk} from "./employeeCard.js";
+import {displayHideButton} from "./hideAndShowButton.js";
+import {updateCurrentCard} from "./allCards.js";
 
 const desks = getAllDesks();
 for (let desk of desks) {
@@ -17,9 +19,12 @@ for (let desk of desks) {
         let id = desk.getAttribute("data-id");
         highlightDeskById(parseInt(id));
 
+        displayHideButton();
 
         if (id != null) {
             openEmployeeCard();
+            updateCurrentCard(document.getElementById("card-employee"));
+
             initializeCard();
             const response = await fetch(`https://offficemap.azurewebsites.net/api/employees/by-desk-id/${id}`, {
                 method: "GET",
@@ -32,6 +37,7 @@ for (let desk of desks) {
             }
         } else {
             openCardFreeDesk();
+            updateCurrentCard(document.getElementById("card-with-free-table"));
         }
     }
 }

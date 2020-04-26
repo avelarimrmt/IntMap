@@ -2,6 +2,8 @@ import {initializeCard, setCardWithEmployee, closeEmployeeCard} from "./employee
 import {fillAllDesksWithInitialColor, highlightDeskById} from "./desks.js";
 import {closeAllCards} from "./allCards.js";
 import {openEmployeeCard} from "./employeeCard.js";
+import {displayHideButton, unDisplayHideButton, displayShowButton, unDisplayShowButton} from "./hideAndShowButton.js";
+import {updateCurrentCard} from "./allCards.js";
 
 const cardOfResults = document.getElementById("card-of-results");
 
@@ -25,19 +27,25 @@ export function closeCardOfNoResults() {
 
 const closeButtonNoResults = document.querySelector('.close-btn-no-results');
 
-closeButtonNoResults.addEventListener('click', closeCardOfNoResults);
+closeButtonNoResults.addEventListener('click',() =>  {
+    closeCardOfNoResults();
+    unDisplayHideButton();
+});
 
 
 export function setCardOfResultsAndShow(employees) {
     closeAllCards();
+    displayHideButton();
 
     if (employees.length !== 0) {
         openCardOfResults();
+        updateCurrentCard(cardOfResults);
         setCardOfResults(employees);
         fillAllDesksWithInitialColor();
         highlightDesksOfEmployees(employees);
     } else {
         openCardOfNoResults();
+        updateCurrentCard(cardOfNoResults);
     }
 }
 
@@ -149,6 +157,7 @@ function showCard(employee) {
     emp.style.marginTop = '0';
 
     openEmployeeCard();
+    updateCurrentCard(document.getElementById("card-employee"));
     initializeCard();
     setCardWithEmployee(employee);
 
@@ -161,6 +170,7 @@ backToResults.addEventListener('click', () => clickBackToResults());
 
 function clickBackToResults() {
     openCardOfResults();
+    displayHideButton();
 
     const emp = document.querySelector('.employee');
     const backToResults = document.querySelector('.back-to-results');

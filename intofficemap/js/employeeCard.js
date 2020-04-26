@@ -1,4 +1,5 @@
 import {fillAllDesksWithInitialColor} from './desks.js'
+import {unDisplayHideButton} from "./hideAndShowButton.js";
 
 const employeeCard = document.getElementById("card-employee");
 
@@ -16,6 +17,7 @@ const closeButton = document.querySelector('.close-btn');
 closeButton.addEventListener('click', () => {
     closeEmployeeCard();
     fillAllDesksWithInitialColor();
+    unDisplayHideButton();
 });
 
 const cardWithFreeDesk = document.getElementById("card-with-free-table");
@@ -29,7 +31,10 @@ export function closeCardFreeDesk() {
 }
 
 const closeButtonFreeDesk = document.querySelector('.close-btn-no-emp');
-closeButtonFreeDesk.addEventListener('click', closeCardFreeDesk);
+closeButtonFreeDesk.addEventListener('click', () => {
+    closeCardFreeDesk();
+    unDisplayHideButton();
+});
 
 const name = document.querySelector(".first-name");
 const midName = document.querySelector(".middle-name");
