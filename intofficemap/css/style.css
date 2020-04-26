@@ -148,9 +148,15 @@ header{
 	background: #E4E4E4;
 }
 
+@media screen and (min-device-height: 720px) {
+	.map-wrapper {height: 660px;}
+}
+@media screen and (device-height: 1080px) {
+	.map-wrapper {height: 1020px;}
+}
+
 .map-wrapper {
 	display: flex;
-	height: 660px;
 }
 
 .map-content {
