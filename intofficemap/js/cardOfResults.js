@@ -159,12 +159,6 @@ function setCardOfResults(employees) {
         floorNumber.classList = 'floor-number';
         floorNumber.textContent = employee.desk !== null ? employee.desk.floorNumber : '';
         unchangeStroke2.appendChild(floorNumber);
-        highlightCurrentFloor();
-/*        let currentFloor = getFloorNumber();
-        if (floorNumber.textContent === currentFloor.toString()) {
-            floorNumber.style.color = '#FFC617';
-            floorNumber.style.fontWeight = 'bold';
-        }*/
 
         const imgRes = document.createElement('div');
         imgRes.classList = 'img-res';
@@ -186,6 +180,9 @@ function setCardOfResults(employees) {
         });
     }
 
+    highlightCurrentFloor();
+    highlightAvatarsOnCurrentFloor();
+
     const lastSeparator = results.lastChild;
     lastSeparator.remove();
 }
@@ -198,7 +195,27 @@ export function highlightCurrentFloor() {
         if (floor.textContent === currentFloor.toString()) {
             floor.style.color = '#FFC617';
             floor.style.fontWeight = 'bold';
+        } else {
+            floor.style.color = '';
+            floor.style.fontWeight = '';
         }
+    }
+}
+
+export function highlightAvatarsOnCurrentFloor() {
+
+    const blocks = document.querySelectorAll('.block-result');
+
+    for (let block of blocks) {
+        const floor = block.querySelector('.floor-number');
+        let currentFloor = getFloorNumber();
+        const avatar = block.querySelector('.avatar-res');
+        if (floor.textContent === currentFloor.toString()) {
+            avatar.classList += ' highlighted';
+        } else {
+            avatar.classList = avatar.classList.toString().replace(' highlighted', '');
+        }
+
     }
 }
 

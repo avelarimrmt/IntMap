@@ -451,6 +451,10 @@ svg.btn-svg {
     border-radius: 40px;
 }
 
+.highlighted {
+    box-shadow: 0 0 10px #FFC617;
+}
+
 .unchanged-emp {
     display: flex;
     flex-direction: column;

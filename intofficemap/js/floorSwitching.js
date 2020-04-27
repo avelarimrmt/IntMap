@@ -1,4 +1,5 @@
 import {highlightCurrentFloor} from "./cardOfResults.js";
+import {highlightAvatarsOnCurrentFloor} from "./cardOfResults.js";
 
 const buttonUp = document.querySelector('.up-toggle');
 const buttonDown = document.querySelector('.down-toggle');
@@ -46,6 +47,7 @@ function upFloor() {
             buttonUp.disabled = true;
 
         highlightCurrentFloor();
+        highlightAvatarsOnCurrentFloor();
     }
 }
 
@@ -71,6 +73,7 @@ function downFloor() {
             buttonDown.disabled = true;
 
         highlightCurrentFloor();
+        highlightAvatarsOnCurrentFloor();
     }
 }
 
