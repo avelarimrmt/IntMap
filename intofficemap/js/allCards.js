@@ -17,3 +17,4 @@ export function updateCurrentCard(card) {
 export function getCurrentCard() {
     return currentCard;
 }
+

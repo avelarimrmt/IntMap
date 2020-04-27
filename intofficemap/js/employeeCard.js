@@ -36,6 +36,7 @@ const closeButtonFreeDesk = document.querySelector('.close-btn-no-emp');
 closeButtonFreeDesk.addEventListener('click', () => {
     closeCardFreeDesk();
     unDisplayHideButton();
+    fillAllDesksWithInitialColor();
 });
 
 const name = document.querySelector(".first-name");

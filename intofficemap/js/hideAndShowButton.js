@@ -5,6 +5,8 @@ const showButton =  document.querySelector('.show');
 
 export function displayHideButton() {
     hideButton.style.display = 'block';
+    let currentCard = getCurrentCard();
+    hideButton.style.left = `${currentCard.offsetWidth + 6}px`;
 }
 
 export function displayShowButton() {

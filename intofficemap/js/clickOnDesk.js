@@ -21,23 +21,25 @@ for (let desk of desks) {
 
         displayHideButton();
 
-        if (id != null) {
-            openEmployeeCard();
-            updateCurrentCard(document.getElementById("card-employee"));
 
-            initializeCard();
-            const response = await fetch(`https://offficemap.azurewebsites.net/api/employees/by-desk-id/${id}`, {
-                method: "GET",
-                headers: {"Accept": "application/json"}
-            });
+        const response = await fetch(`https://offficemap.azurewebsites.net/api/employees/by-desk-id/${id}`, {
+            method: "GET",
+            headers: {"Accept": "application/json"}
+        });
 
-            if (response.ok === true) {
-                const employees = await response.json();
+        if (response.ok === true) {
+            const employees = await response.json();
+
+            if (employees.length === 0) {
+                openCardFreeDesk();
+
+                updateCurrentCard(document.getElementById("card-with-free-table"));
+            } else {
+                openEmployeeCard();
+                initializeCard();
                 setCardWithEmployee(employees[0]);
+                updateCurrentCard(document.getElementById("card-employee"));
             }
-        } else {
-            openCardFreeDesk();
-            updateCurrentCard(document.getElementById("card-with-free-table"));
         }
     }
 }

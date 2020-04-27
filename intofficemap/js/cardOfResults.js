@@ -7,6 +7,7 @@ import {updateCurrentCard} from "./allCards.js";
 import {clearInput} from "./searchAndClear.js";
 import {showFloorWithFloorNumber} from "./floorSwitching.js";
 import {getInputValue} from "./searchAndClear.js";
+import {getFloorNumber} from "./floorSwitching.js";
 
 const cardOfResults = document.getElementById("card-of-results");
 
@@ -158,6 +159,12 @@ function setCardOfResults(employees) {
         floorNumber.classList = 'floor-number';
         floorNumber.textContent = employee.desk !== null ? employee.desk.floorNumber : '';
         unchangeStroke2.appendChild(floorNumber);
+        highlightCurrentFloor();
+/*        let currentFloor = getFloorNumber();
+        if (floorNumber.textContent === currentFloor.toString()) {
+            floorNumber.style.color = '#FFC617';
+            floorNumber.style.fontWeight = 'bold';
+        }*/
 
         const imgRes = document.createElement('div');
         imgRes.classList = 'img-res';
@@ -181,6 +188,18 @@ function setCardOfResults(employees) {
 
     const lastSeparator = results.lastChild;
     lastSeparator.remove();
+}
+
+export function highlightCurrentFloor() {
+    const floorNumbers = document.querySelectorAll('.floor-number');
+
+    for (let floor of floorNumbers) {
+        let currentFloor = getFloorNumber();
+        if (floor.textContent === currentFloor.toString()) {
+            floor.style.color = '#FFC617';
+            floor.style.fontWeight = 'bold';
+        }
+    }
 }
 
 function clearCardOfResults() {

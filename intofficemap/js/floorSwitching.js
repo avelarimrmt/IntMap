@@ -1,3 +1,5 @@
+import {highlightCurrentFloor} from "./cardOfResults.js";
+
 const buttonUp = document.querySelector('.up-toggle');
 const buttonDown = document.querySelector('.down-toggle');
 const floorNumber = document.getElementById('floor-number');
@@ -6,6 +8,11 @@ const floors = document.querySelectorAll('.floor-of-map');
 let currentFloor = 14;
 const minFloor = 14;
 const maxFloor = 15;
+
+export function getFloorNumber() {
+    return currentFloor;
+}
+
 
 function setFloorNumber(floor) {
     floorNumber.textContent = floor.toString();
@@ -37,6 +44,8 @@ function upFloor() {
         buttonDown.disabled = false;
         if (currentFloor === maxFloor)
             buttonUp.disabled = true;
+
+        highlightCurrentFloor();
     }
 }
 
@@ -60,6 +69,8 @@ function downFloor() {
         buttonUp.disabled = false;
         if (currentFloor === minFloor)
             buttonDown.disabled = true;
+
+        highlightCurrentFloor();
     }
 }
 

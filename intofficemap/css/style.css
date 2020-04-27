@@ -455,7 +455,7 @@ svg.btn-svg {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 36%;
+    width: 30%;
 }
 
 .changed-emp {
@@ -469,6 +469,7 @@ svg.btn-svg {
     line-height: 11px;
     color: #FFFFFF;
     margin-bottom: 12px;
+    display: flex;
 }
 
 .unchange-stroke {
@@ -504,9 +505,9 @@ svg.btn-svg {
     display: none;
 }
 
-.hide {
+/*.hide {
     left: 341px;
-}
+}*/
 
 .btn-hide:active, .btn-show:active {
 	box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.25);
@@ -681,7 +682,11 @@ svg.btn-svg {
 }
 
 .floor-number {
-    color: #FFC617;
+    color: #999999;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 11px;
 }
 
 .avatar-res {
