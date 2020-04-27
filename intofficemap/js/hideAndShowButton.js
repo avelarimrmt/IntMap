@@ -1,12 +1,18 @@
 import {getCurrentCard} from "./allCards.js";
 
-const hideButton =  document.querySelector('.hide');
-const showButton =  document.querySelector('.show');
+const hideButton = document.querySelector('.hide');
+const showButton = document.querySelector('.show');
 
 export function displayHideButton() {
     hideButton.style.display = 'block';
+
     let currentCard = getCurrentCard();
-    hideButton.style.left = `${currentCard.offsetWidth + 6}px`;
+
+    const cardWidth = currentCard.querySelector('.card').offsetWidth;
+    if (cardWidth !== undefined)
+        hideButton.style.left = `${cardWidth + 6}px`;
+    else
+        hideButton.style.left = `341px`;
 }
 
 export function displayShowButton() {

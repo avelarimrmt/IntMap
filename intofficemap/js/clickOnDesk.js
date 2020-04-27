@@ -19,7 +19,6 @@ for (let desk of desks) {
         let id = desk.getAttribute("data-id");
         highlightDeskById(parseInt(id));
 
-        displayHideButton();
 
 
         const response = await fetch(`https://offficemap.azurewebsites.net/api/employees/by-desk-id/${id}`, {
@@ -41,5 +40,6 @@ for (let desk of desks) {
                 updateCurrentCard(document.getElementById("card-employee"));
             }
         }
+        displayHideButton();
     }
 }

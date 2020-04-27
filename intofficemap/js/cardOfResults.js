@@ -43,8 +43,8 @@ export function setCardOfResultsAndShow(employees) {
 
     if (employees.length !== 0) {
         openCardOfResults();
-        displayHideButton();
         updateCurrentCard(cardOfResults);
+        displayHideButton();
         setCardOfResults(employees);
         fillAllDesksWithInitialColor();
         highlightDesksOfEmployees(employees);
