@@ -61,8 +61,7 @@ export function clearInput() {
 
     initializeSearchLine();
     unDisplayHideButton();
-    closeCardOfResults();
-    closeCardOfNoResults();
+    closeAllCards();
     clearList(listOfEmployees);
 
     fillAllDesksWithInitialColor();
