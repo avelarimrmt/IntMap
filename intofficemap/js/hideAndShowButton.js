@@ -7,11 +7,11 @@ export function displayHideButton() {
     hideButton.style.display = 'block';
 
     let currentCard = getCurrentCard();
-
-    const cardWidth = currentCard.querySelector('.card').offsetWidth;
-    if (cardWidth !== undefined)
-        hideButton.style.left = `${cardWidth + 6}px`;
-    else
+    const card = currentCard.querySelector('.card');
+    if (card !== null) {
+        const w = card.offsetWidth;
+        hideButton.style.left = `${w + 6}px`;
+    } else
         hideButton.style.left = `341px`;
 }
 
