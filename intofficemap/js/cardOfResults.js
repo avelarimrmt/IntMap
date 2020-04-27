@@ -236,6 +236,7 @@ function showCard(employee) {
     updateCurrentCard(document.getElementById("card-employee"));
     initializeCard();
     setCardWithEmployee(employee);
+    displayHideButton();
 
     const deskId = employee.desk.id;
     fillAllDesksWithInitialColor();

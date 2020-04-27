@@ -162,9 +162,9 @@ function showCard(employee, value) {
 
     openEmployeeCard();
     updateCurrentCard(document.getElementById("card-employee"));
-    displayHideButton();
     initializeCard();
     setCardWithEmployee(employee);
+    displayHideButton();
 
     const deskId = employee.desk.id;
     fillAllDesksWithInitialColor();
