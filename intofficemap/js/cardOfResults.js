@@ -76,9 +76,8 @@ function setCardOfResults(employees) {
     title.textContent = 'Результаты поиска';
     results.appendChild(title);
 
-    const resultsSeparator = document.createElement('img');
-    resultsSeparator.classList = 'br-hor';
-    resultsSeparator.src = './images/br-horiz.svg';
+    const resultsSeparator = document.createElement('hr');
+    resultsSeparator.style='border: 1px solid #FFC617; width: 300px';
 
     for (let employee of employees) {
         const block = document.createElement('div');
