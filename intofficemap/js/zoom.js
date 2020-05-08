@@ -27,6 +27,11 @@ const plusButton = document.getElementById('plus');
 const minusButton = document.getElementById('minus');
 
 const procentValue = document.getElementById('val-scale');
+const value = procentValue.textContent;
+
+/*if (value.slice(value.length, value.length-1) !== (maxZoom.toString())) {
+    plusButton.addEventListener('click', upZoom);
+}*/
 
 plusButton.addEventListener('click', upZoom);
 
@@ -35,11 +40,15 @@ function upZoom() {
     currentWidth += widthDelta;
     currentHeight += heightDelta;
 
-    if (currentZoom <= maxZoom) {
-        map.style.width = currentWidth;
-        map.style.height = currentHeight;
-        procentValue.textContent = currentZoom + '%';
-    }
+    if (currentZoom === maxZoom) {
+        plusButton.disabled = true;
+        minusButton.disabled = false;
+    } else
+        plusButton.disabled = false;
+
+    map.style.width = currentWidth;
+    map.style.height = currentHeight;
+    procentValue.textContent = currentZoom + '%';
 }
 
 minusButton.addEventListener('click', downZoom);
@@ -49,9 +58,14 @@ function downZoom() {
     currentWidth -= widthDelta;
     currentHeight -= heightDelta;
 
-   if (currentZoom >= minZoom) {
-        map.style.width = currentWidth;
-        map.style.height = currentHeight;
-       procentValue.textContent = currentZoom + '%';
-    }
+    if (currentZoom === minZoom) {
+        minusButton.disabled = true;
+        plusButton.disabled = false;
+    } else
+        minusButton.disabled = false;
+
+    map.style.width = currentWidth;
+    map.style.height = currentHeight;
+    procentValue.textContent = currentZoom + '%';
 }
+

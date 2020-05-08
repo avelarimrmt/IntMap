@@ -267,7 +267,7 @@ header {
     background: transparent;
 }
 
-svg.btn-svg {
+svg.btn-svg, .btn-plus-minus {
     cursor: pointer !important;
 }
 
@@ -277,6 +277,17 @@ svg.btn-svg {
 
 .scale-and-floor-wrapper svg:active .fill-line {
     fill: #E4B218;
+}
+
+#plus, #minus {
+    width: 26px;
+    height: 26px;
+    background: #303030;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
 }
 
 .floor-wrapper {
