@@ -10,11 +10,11 @@
 </head>
 
 <body>
-<header>
+<header class="search">
     <div class='search-wrapper'>
         <div class="search-form">
             <div class="dropdown">
-                <input id="textInput" autocomplete="off" type="text" class="search">
+                <input id="textInput" autocomplete="off" type="text">
                 <ul id="drop-down"></ul>
             </div>
             <div class="btn-search-clear">
@@ -73,9 +73,58 @@
     </div>
 </section>
 
-<section class="map-wrapper">
+<section id="scale-and-floor-wrapper" class="scale-and-floor-wrapper">
+        <div class="scale-wrapper">
+            <div id="scale">
+                <svg class="btn-svg" id="plus" width="26" height="26" viewBox="0 0 26 26" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 5C0 2.23858 2.23858 0 5 0H21C23.7614 0 26 2.23858 26 5V21C26 23.7614 23.7614 26 21 26H5C2.23858 26 0 23.7614 0 21V5Z"
+                          fill="#303030"/>
+                    <rect class="fill-line" x="4" y="14" width="2" height="18" rx="1" transform="rotate(-90 4 14)"
+                          fill="#BCBCBC"/>
+                    <rect class="fill-line" x="12" y="4" width="2" height="18" rx="1" fill="#BCBCBC"/>
+                </svg>
+
+                <svg class="btn-svg" id="minus" width="26" height="26" viewBox="0 0 26 26" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M26 21C26 23.7614 23.7614 26 21 26L5 26C2.23858 26 0 23.7614 0 21L0 5C0 2.23858 2.23858 0 5 0L21 0C23.7614 0 26 2.23858 26 5L26 21Z"
+                          fill="#303030"/>
+                    <rect class="fill-line" x="4" y="14" width="2" height="18" rx="1" transform="rotate(-90 4 14)"
+                          fill="#BCBCBC"/>
+                </svg>
+
+                <div class="value-scale"><span id="val-scale">100%</span></div>
+            </div>
+        </div>
+
+        <div class="floor-wrapper">
+            <div id="floor">
+                <button type="button" class="btn-svg btn-toggle up-toggle">
+                    <svg width="57" height="19" viewBox="0 0 57 19" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path class="fill-up-down" disabled
+                              d="M27.5914 0.369337C27.9272 0.145656 28.3645 0.145657 28.7002 0.369337L53.5413 16.9178C54.3648 17.4664 53.9764 18.75 52.9868 18.75H3.30481C2.31523 18.75 1.92682 17.4664 2.75039 16.9178L27.5914 0.369337Z"
+                              fill="#FFC617"/>
+                    </svg>
+                </button>
+
+                <span id="floor-number"></span>
+
+                <button type="button" class="btn-svg btn-toggle down-toggle" disabled>
+                    <svg width="57" height="19" viewBox="0 0 57 19" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path class="fill-up-down"
+                              d="M29.0543 18.6307C28.7186 18.8543 28.2813 18.8543 27.9455 18.6307L3.10449 2.08224C2.28092 1.5336 2.66932 0.25 3.65891 0.25L53.3409 0.25C54.3305 0.25 54.7189 1.5336 53.8954 2.08224L29.0543 18.6307Z"
+                              fill="#FFC617"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+</section>
+
+<section id="map-wrapper" class="map-wrapper">
     <div class="map-content">
-        <div class="map" id="imap">
+        <div class="map">
             <svg class="floor-of-map" data-floor="active" floor-number="14" width="905" height="581"
                  viewBox="0 0 1448 930" fill="none" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -294,7 +343,8 @@
                 <path d="M632.667 288C633.403 288 634 288.597 634 289.333C634 290.806 632.806 292 631.333 292H622.333C621.597 292 621 291.403 621 290.667C621 289.194 622.194 288 623.667 288H632.667Z"
                       fill="#484848"/>
 
-                <rect class="light-table" data-id="6" x="754" y="351" width="55" height="90" rx="8" transform="rotate(-180 754 351)"
+                <rect class="light-table" data-id="6" x="754" y="351" width="55" height="90" rx="8"
+                      transform="rotate(-180 754 351)"
                       fill="#FFC617"/>
                 <path d="M754 320V293H771C772.657 293 774 294.343 774 296V317C774 318.657 772.657 320 771 320H754Z"
                       fill="#616161"/>
@@ -375,7 +425,8 @@
                 <path d="M1027.33 324C1026.6 324 1026 323.403 1026 322.667C1026 321.194 1027.19 320 1028.67 320H1037.67C1038.4 320 1039 320.597 1039 321.333C1039 322.806 1037.81 324 1036.33 324H1027.33Z"
                       fill="#484848"/>
 
-                <rect class="light-table" data-id="13" x="800" y="507" width="55" height="90" rx="8" transform="rotate(90 800 507)"
+                <rect class="light-table" data-id="13" x="800" y="507" width="55" height="90" rx="8"
+                      transform="rotate(90 800 507)"
                       fill="#FFC617"/>
                 <path d="M769 507H742V490C742 488.343 743.343 487 745 487H766C767.657 487 769 488.343 769 490V507Z"
                       fill="#616161"/>
@@ -387,7 +438,8 @@
                 <path d="M773 504.667C773 505.403 772.403 506 771.667 506C770.194 506 769 504.806 769 503.333V494.333C769 493.597 769.597 493 770.333 493C771.806 493 773 494.194 773 495.667V504.667Z"
                       fill="#484848"/>
 
-                <rect class="light-table" data-id="14" x="903" y="507" width="55" height="90" rx="8" transform="rotate(90 903 507)"
+                <rect class="light-table" data-id="14" x="903" y="507" width="55" height="90" rx="8"
+                      transform="rotate(90 903 507)"
                       fill="#FFC617"/>
                 <path d="M872 507H845V490C845 488.343 846.343 487 848 487H869C870.657 487 872 488.343 872 490V507Z"
                       fill="#616161"/>
@@ -399,7 +451,8 @@
                 <path d="M876 504.667C876 505.403 875.403 506 874.667 506C873.194 506 872 504.806 872 503.333V494.333C872 493.597 872.597 493 873.333 493C874.806 493 876 494.194 876 495.667V504.667Z"
                       fill="#484848"/>
 
-                <rect class="light-table" data-id="15" x="1006" y="507" width="55" height="90" rx="8" transform="rotate(90 1006 507)"
+                <rect class="light-table" data-id="15" x="1006" y="507" width="55" height="90" rx="8"
+                      transform="rotate(90 1006 507)"
                       fill="#FFC617"/>
                 <path d="M975 507H948V490C948 488.343 949.343 487 951 487H972C973.657 487 975 488.343 975 490V507Z"
                       fill="#616161"/>
@@ -430,7 +483,8 @@
                       stroke="#B0B0B0" stroke-width="2"/>
                 <line x1="952" y1="11" x2="1102" y2="11" stroke="#B0B0B0" stroke-width="4"/>
 
-                <rect class="light-table" data-id="16" x="209" y="549" width="55" height="90" rx="8" transform="rotate(90 209 549)"
+                <rect class="light-table" data-id="16" x="209" y="549" width="55" height="90" rx="8"
+                      transform="rotate(90 209 549)"
                       fill="#FFC617"/>
                 <path d="M178 549L151 549L151 532C151 530.343 152.343 529 154 529L175 529C176.657 529 178 530.343 178 532L178 549Z"
                       fill="#616161"/>
@@ -442,7 +496,8 @@
                 <path d="M182 546.667C182 547.403 181.403 548 180.667 548C179.194 548 178 546.806 178 545.333L178 536.333C178 535.597 178.597 535 179.333 535C180.806 535 182 536.194 182 537.667L182 546.667Z"
                       fill="#484848"/>
 
-                <rect class="light-table" data-id="17" x="312" y="549" width="55" height="90" rx="8" transform="rotate(90 312 549)"
+                <rect class="light-table" data-id="17" x="312" y="549" width="55" height="90" rx="8"
+                      transform="rotate(90 312 549)"
                       fill="#FFC617"/>
                 <path d="M281 549L254 549L254 532C254 530.343 255.343 529 257 529L278 529C279.657 529 281 530.343 281 532L281 549Z"
                       fill="#616161"/>
@@ -454,7 +509,8 @@
                 <path d="M285 546.667C285 547.403 284.403 548 283.667 548C282.194 548 281 546.806 281 545.333L281 536.333C281 535.597 281.597 535 282.333 535C283.806 535 285 536.194 285 537.667L285 546.667Z"
                       fill="#484848"/>
 
-                <rect class="light-table" data-id="18" x="119" y="668" width="55" height="90" rx="8" transform="rotate(-90 119 668)"
+                <rect class="light-table" data-id="18" x="119" y="668" width="55" height="90" rx="8"
+                      transform="rotate(-90 119 668)"
                       fill="#FFC617"/>
                 <path d="M150 668L177 668L177 685C177 686.657 175.657 688 174 688L153 688C151.343 688 150 686.657 150 685L150 668Z"
                       fill="#616161"/>
@@ -467,7 +523,8 @@
                       fill="#484848"/>
 
 
-                <rect class="light-table" data-id="19" x="222" y="668" width="55" height="90" rx="8" transform="rotate(-90 222 668)"
+                <rect class="light-table" data-id="19" x="222" y="668" width="55" height="90" rx="8"
+                      transform="rotate(-90 222 668)"
                       fill="#FFC617"/>
                 <path d="M253 668L280 668L280 685C280 686.657 278.657 688 277 688L256 688C254.343 688 253 686.657 253 685L253 668Z"
                       fill="#616161"/>
@@ -479,7 +536,8 @@
                 <path d="M249 670.333C249 669.597 249.597 669 250.333 669C251.806 669 253 670.194 253 671.667L253 680.667C253 681.403 252.403 682 251.667 682C250.194 682 249 680.806 249 679.333L249 670.333Z"
                       fill="#484848"/>
 
-                <rect class="light-table" data-id="20" x="209" y="731" width="55" height="90" rx="8" transform="rotate(90 209 731)"
+                <rect class="light-table" data-id="20" x="209" y="731" width="55" height="90" rx="8"
+                      transform="rotate(90 209 731)"
                       fill="#FFC617"/>
                 <path d="M178 731L151 731L151 714C151 712.343 152.343 711 154 711L175 711C176.657 711 178 712.343 178 714L178 731Z"
                       fill="#616161"/>
@@ -491,7 +549,8 @@
                 <path d="M182 728.667C182 729.403 181.403 730 180.667 730C179.194 730 178 728.806 178 727.333L178 718.333C178 717.597 178.597 717 179.333 717C180.806 717 182 718.194 182 719.667L182 728.667Z"
                       fill="#484848"/>
 
-                <rect class="light-table" data-id="21" x="312" y="731" width="55" height="90" rx="8" transform="rotate(90 312 731)"
+                <rect class="light-table" data-id="21" x="312" y="731" width="55" height="90" rx="8"
+                      transform="rotate(90 312 731)"
                       fill="#FFC617"/>
                 <path d="M281 731L254 731L254 714C254 712.343 255.343 711 257 711L278 711C279.657 711 281 712.343 281 714L281 731Z"
                       fill="#616161"/>
@@ -503,7 +562,8 @@
                 <path d="M285 728.667C285 729.403 284.403 730 283.667 730C282.194 730 281 728.806 281 727.333L281 718.333C281 717.597 281.597 717 282.333 717C283.806 717 285 718.194 285 719.667L285 728.667Z"
                       fill="#484848"/>
 
-                <rect class="light-table" data-id="22" x="119" y="850" width="55" height="90" rx="8" transform="rotate(-90 119 850)"
+                <rect class="light-table" data-id="22" x="119" y="850" width="55" height="90" rx="8"
+                      transform="rotate(-90 119 850)"
                       fill="#FFC617"/>
                 <path d="M150 850L177 850L177 867C177 868.657 175.657 870 174 870L153 870C151.343 870 150 868.657 150 867L150 850Z"
                       fill="#616161"/>
@@ -516,7 +576,8 @@
                       fill="#484848"/>
 
 
-                <rect class="light-table" data-id="23" x="222" y="850" width="55" height="90" rx="8" transform="rotate(-90 222 850)"
+                <rect class="light-table" data-id="23" x="222" y="850" width="55" height="90" rx="8"
+                      transform="rotate(-90 222 850)"
                       fill="#FFC617"/>
                 <path d="M253 850L280 850L280 867C280 868.657 278.657 870 277 870L256 870C254.343 870 253 868.657 253 867L253 850Z"
                       fill="#616161"/>
@@ -1089,7 +1150,8 @@
                 <path d="M565.667 839C566.403 839 567 839.597 567 840.333V840.333C567 841.806 565.806 843 564.333 843H555.333C554.597 843 554 842.403 554 841.667V841.667C554 840.194 555.194 839 556.667 839H565.667Z"
                       fill="#484848"/>
 
-                <rect class="light-table" data-id="35" x="683" y="902" width="55" height="90" rx="8" transform="rotate(-180 683 902)"
+                <rect class="light-table" data-id="35" x="683" y="902" width="55" height="90" rx="8"
+                      transform="rotate(-180 683 902)"
                       fill="#FFC617"/>
                 <path d="M683 871V844H700C701.657 844 703 845.343 703 847V868C703 869.657 701.657 871 700 871H683Z"
                       fill="#616161"/>
@@ -1128,7 +1190,8 @@
                 <rect x="814" y="743" width="2" height="1" transform="rotate(-180 814 743)" fill="#949494"/>
                 <rect x="812" y="758" width="2" height="18" transform="rotate(-180 812 758)" fill="#484848"/>
 
-                <rect class="light-table" data-id="32" x="1175" y="82" width="55" height="90" rx="8" transform="rotate(90 1175 82)"
+                <rect class="light-table" data-id="32" x="1175" y="82" width="55" height="90" rx="8"
+                      transform="rotate(90 1175 82)"
                       fill="#FFC617"/>
                 <path d="M1144 82H1117V65C1117 63.3431 1118.34 62 1120 62H1141C1142.66 62 1144 63.3431 1144 65V82Z"
                       fill="#616161"/>
@@ -1199,7 +1262,8 @@
                 <path d="M625 84.6667C625 85.403 624.403 86 623.667 86V86C622.194 86 621 84.8061 621 83.3333V74.3333C621 73.597 621.597 73 622.333 73V73C623.806 73 625 74.1939 625 75.6667V84.6667Z"
                       fill="#484848"/>
 
-                <rect class="light-table" data-id="25" x="652" y="172" width="55" height="90" rx="8" transform="rotate(90 652 172)"
+                <rect class="light-table" data-id="25" x="652" y="172" width="55" height="90" rx="8"
+                      transform="rotate(90 652 172)"
                       fill="#FFC617"/>
                 <path d="M621 172H594V155C594 153.343 595.343 152 597 152H618C619.657 152 621 153.343 621 155V172Z"
                       fill="#616161"/>
@@ -1211,7 +1275,8 @@
                 <path d="M625 169.667C625 170.403 624.403 171 623.667 171V171C622.194 171 621 169.806 621 168.333V159.333C621 158.597 621.597 158 622.333 158V158C623.806 158 625 159.194 625 160.667V169.667Z"
                       fill="#484848"/>
 
-                <rect class="light-table" data-id="26" x="652" y="257" width="55" height="90" rx="8" transform="rotate(90 652 257)"
+                <rect class="light-table" data-id="26" x="652" y="257" width="55" height="90" rx="8"
+                      transform="rotate(90 652 257)"
                       fill="#FFC617"/>
                 <path d="M621 257H594V240C594 238.343 595.343 237 597 237H618C619.657 237 621 238.343 621 240V257Z"
                       fill="#616161"/>
@@ -1235,7 +1300,8 @@
                 <path d="M779 84.6667C779 85.403 778.403 86 777.667 86V86C776.194 86 775 84.8061 775 83.3333V74.3333C775 73.597 775.597 73 776.333 73V73C777.806 73 779 74.1939 779 75.6667V84.6667Z"
                       fill="#484848"/>
 
-                <rect class="light-table" data-id="28" x="806" y="172" width="55" height="90" rx="8" transform="rotate(90 806 172)"
+                <rect class="light-table" data-id="28" x="806" y="172" width="55" height="90" rx="8"
+                      transform="rotate(90 806 172)"
                       fill="#FFC617"/>
                 <path d="M775 172H748V155C748 153.343 749.343 152 751 152H772C773.657 152 775 153.343 775 155V172Z"
                       fill="#616161"/>
@@ -1247,7 +1313,8 @@
                 <path d="M779 169.667C779 170.403 778.403 171 777.667 171V171C776.194 171 775 169.806 775 168.333V159.333C775 158.597 775.597 158 776.333 158V158C777.806 158 779 159.194 779 160.667V169.667Z"
                       fill="#484848"/>
 
-                <rect class="light-table" data-id="29" x="806" y="257" width="55" height="90" rx="8" transform="rotate(90 806 257)"
+                <rect class="light-table" data-id="29" x="806" y="257" width="55" height="90" rx="8"
+                      transform="rotate(90 806 257)"
                       fill="#FFC617"/>
                 <path d="M775 257H748V240C748 238.343 749.343 237 751 237H772C773.657 237 775 238.343 775 240V257Z"
                       fill="#616161"/>
@@ -1952,53 +2019,6 @@
                 </defs>
             </svg>
         </div>
-        <!--<div class="scale-and-floor-wrapper">
-            <div class="scale-and-floor">
-                <div class="items scale">
-
-                    <svg class="btn-svg" id="plus" width="26" height="26" viewBox="0 0 26 26" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 5C0 2.23858 2.23858 0 5 0H21C23.7614 0 26 2.23858 26 5V21C26 23.7614 23.7614 26 21 26H5C2.23858 26 0 23.7614 0 21V5Z"
-                              fill="#303030"/>
-                        <rect class="fill-line" x="4" y="14" width="2" height="18" rx="1" transform="rotate(-90 4 14)"
-                              fill="#BCBCBC"/>
-                        <rect class="fill-line" x="12" y="4" width="2" height="18" rx="1" fill="#BCBCBC"/>
-                    </svg>
-
-                    <svg class="btn-svg" id="minus" width="26" height="26" viewBox="0 0 26 26" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path d="M26 21C26 23.7614 23.7614 26 21 26L5 26C2.23858 26 0 23.7614 0 21L0 5C0 2.23858 2.23858 0 5 0L21 0C23.7614 0 26 2.23858 26 5L26 21Z"
-                              fill="#303030"/>
-                        <rect class="fill-line" x="4" y="14" width="2" height="18" rx="1" transform="rotate(-90 4 14)"
-                              fill="#BCBCBC"/>
-                    </svg>
-
-                    <div class="value-scale" id="val-scale"><span>75%</span></div>
-                </div>
-                <div class="items">-->
-        <div class="floor-wrapper" >
-            <div id="floor">
-                <button type="button" class="btn-svg btn-toggle up-toggle">
-                    <svg width="57" height="19" viewBox="0 0 57 19" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path class="fill-up-down" disabled
-                              d="M27.5914 0.369337C27.9272 0.145656 28.3645 0.145657 28.7002 0.369337L53.5413 16.9178C54.3648 17.4664 53.9764 18.75 52.9868 18.75H3.30481C2.31523 18.75 1.92682 17.4664 2.75039 16.9178L27.5914 0.369337Z"
-                              fill="#FFC617"/>
-                    </svg>
-                </button>
-
-                <span id="floor-number"></span>
-
-                <button type="button" class="btn-svg btn-toggle down-toggle" disabled>
-                    <svg width="57" height="19" viewBox="0 0 57 19" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path class="fill-up-down"
-                              d="M29.0543 18.6307C28.7186 18.8543 28.2813 18.8543 27.9455 18.6307L3.10449 2.08224C2.28092 1.5336 2.66932 0.25 3.65891 0.25L53.3409 0.25C54.3305 0.25 54.7189 1.5336 53.8954 2.08224L29.0543 18.6307Z"
-                              fill="#FFC617"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -2105,6 +2125,6 @@
 <script type="module" src="js/clickOnDesk.js"></script>
 <script type="module" src="js/searchAndClear.js"></script>
 <script type="module" src="js/floorSwitching.js"></script>
-
+<script type="text/javascript" src="js/zoom.js"></script>
 
 </body>

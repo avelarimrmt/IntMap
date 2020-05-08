@@ -9,10 +9,14 @@ body {
 }
 
 header {
-    height: 7%;
-    display: flex;
+    position: fixed;
     background-color: #303030;
+    width: 100%;
+    height: 7%;
+    z-index: 2;
+    top: 0;
 }
+
 
 .search-wrapper {
     display: flex;
@@ -192,9 +196,15 @@ header {
     }
 }*/
 
+#map-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 93%;
+    top: 7%;
+}
+
 .map-wrapper {
     display: flex;
-	height: 93%;
 }
 
 .map-content {
@@ -213,36 +223,35 @@ header {
     align-items: center;
 }
 
-/*.scale-and-floor-wrapper {
-    display: flex;
+#scale-and-floor-wrapper {
+    position: fixed;
     width: 110px;
     height: 100%;
-    align-items: flex-end;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
 }
 
-.scale-and-floor {
+.scale-and-floor-wrapper {
     display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
     justify-content: flex-end;
-}*/
-
-/*.items {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin: 5px 0;
+    flex-direction: column;
 }
 
-.items.scale {
-    height: 30%;
+.scale-wrapper {
+    display: flex;
+    width: 110px;
+    height: 10vh;
+    align-items: flex-end;
+}
+
+#scale {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    width: 76px;
+    height: 100%;
 }
 
 .value-scale {
@@ -251,44 +260,29 @@ header {
     color: #303030;
     cursor: default;
     background: transparent;
+    margin-top: 2px;
 }
 
 .value-scale span::selection {
     background: transparent;
-}*/
+}
 
 svg.btn-svg {
     cursor: pointer !important;
 }
 
-/*.scale-and-floor-wrapper svg:hover .fill-line {
+.scale-and-floor-wrapper svg:hover .fill-line {
     fill: #FFFFFF;
 }
 
 .scale-and-floor-wrapper svg:active .fill-line {
     fill: #E4B218;
-}*/
-
-.light-table {
-    cursor: pointer;
-}
-
-.light-table.hover {
-    fill: #E4B218;
-}
-
-.light-table:active {
-    fill: #E4B218;
-}
-
-.light-table:focus {
-    fill: #B58F1C;
 }
 
 .floor-wrapper {
 	display: flex;
-	width: 110px;
-	height: 100%;
+	width: 100%;
+	height: 25vh;
 	align-items: flex-end;
 }
 
@@ -341,6 +335,22 @@ svg.btn-svg {
     display: none;
 	width: 75%;
 	height: 86%;
+}
+
+.light-table {
+    cursor: pointer;
+}
+
+.light-table.hover {
+    fill: #E4B218;
+}
+
+.light-table:active {
+    fill: #E4B218;
+}
+
+.light-table:focus {
+    fill: #B58F1C;
 }
 
 [data-floor=active] {
