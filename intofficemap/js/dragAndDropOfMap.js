@@ -1,36 +1,36 @@
-/*
+let map1 = document.querySelector('.floor-of-map');
 
-let map = document.querySelector('floor-of-map');
+map1.addEventListener('mousedown', function (e) {
 
-map.onmousedown = function(e) {
-
-    let coords = getCoords(map);
+    let coords = getCoords(map1);
     let shiftX = e.pageX - coords.left;
     let shiftY = e.pageY - coords.top;
 
-    map.style.position = 'absolute';
-    document.body.appendChild(map);
+    map1.style.position = 'absolute';
+    document.body.appendChild(map1);
     moveAt(e);
 
-    map.style.zIndex = 1000; // над другими элементами
+    map1.style.zIndex = 1; // над другими элементами
 
     function moveAt(e) {
-        map.style.left = e.pageX - shiftX + 'px';
-        map.style.top = e.pageY - shiftY + 'px';
+        map1.style.left = e.pageX - shiftX + 'px';
+        map1.style.top = e.pageY - shiftY + 'px';
+        map1.style.cursor = 'move';
     }
 
-    document.onmousemove = function(e) {
+    document.onmousemove = function (e) {
         moveAt(e);
     };
 
-    map.onmouseup = function() {
+    map1.onmouseup = function () {
         document.onmousemove = null;
-        map.onmouseup = null;
+        map1.onmouseup = null;
+        map1.style.cursor = 'default';
     };
 
-}
+});
 
-map.ondragstart = function() {
+map1.ondragstart = function () {
     return false;
 };
 
@@ -41,9 +41,9 @@ function getCoords(elem) {   // кроме IE8-
         left: box.left + pageXOffset
     };
 }
-*/
 
 
+/*
 document.ondragstart = () => false;
 
 document.onmousedown = event => {
@@ -78,3 +78,4 @@ function check(event, target, scrollHeight){
     }
     if (event.pageX + (target.clientWidth - saveX) >= document.body.scrollWidth) target.style.left = document.body.scrollWidth - target.clientWidth+'px ';
 }
+*/
