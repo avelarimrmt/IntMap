@@ -1,38 +1,57 @@
-let map1 = document.querySelector('.floor-of-map');
 
-map1.addEventListener('mousedown', function (e) {
 
-    let coords = getCoords(map1);
-    let shiftX = e.pageX - coords.left;
-    let shiftY = e.pageY - coords.top;
+let map1;
 
-    map1.style.position = 'absolute';
-    document.body.appendChild(map1);
-    moveAt(e);
+export function setMap1() {
+    const floors = document.querySelectorAll('.floor-of-map');
 
-    map1.style.zIndex = 1; // над другими элементами
-
-    function moveAt(e) {
-        map1.style.left = e.pageX - shiftX + 'px';
-        map1.style.top = e.pageY - shiftY + 'px';
-        map1.style.cursor = 'move';
+    for (let floor of floors) {
+        if (floor.getAttribute('data-floor') === 'active')
+            map1 = floor;
     }
 
-    document.onmousemove = function (e) {
+    addEventsOnMap();
+}
+
+setMap1();
+
+function addEventsOnMap(){
+    map1.addEventListener('mousedown', function (e) {
+
+        let coords = getCoords(map1);
+        let shiftX = e.pageX - coords.left;
+        let shiftY = e.pageY - coords.top;
+
+        map1.style.position = 'absolute';
+        document.body.appendChild(map1);
         moveAt(e);
+
+        map1.style.zIndex = 1; // над другими элементами
+
+        function moveAt(e) {
+            map1.style.left = e.pageX - shiftX + 'px';
+            map1.style.top = e.pageY - shiftY + 'px';
+            map1.style.cursor = 'move';
+        }
+
+        document.onmousemove = function (e) {
+            moveAt(e);
+        };
+
+        map1.onmouseup = function () {
+            document.onmousemove = null;
+            map1.onmouseup = null;
+            map1.style.cursor = 'default';
+        };
+
+    });
+
+    map1.ondragstart = function () {
+        return false;
     };
+}
 
-    map1.onmouseup = function () {
-        document.onmousemove = null;
-        map1.onmouseup = null;
-        map1.style.cursor = 'default';
-    };
 
-});
-
-map1.ondragstart = function () {
-    return false;
-};
 
 function getCoords(elem) {   // кроме IE8-
     let box = elem.getBoundingClientRect();
@@ -41,41 +60,3 @@ function getCoords(elem) {   // кроме IE8-
         left: box.left + pageXOffset
     };
 }
-
-
-/*
-document.ondragstart = () => false;
-
-document.onmousedown = event => {
-    if (!event.target.classList.contains('draggable')) return;
-
-    let scrollHeight = Math.max(
-        document.body.scrollHeight, document.documentElement.scrollHeight,
-        document.body.offsetHeight, document.documentElement.offsetHeight,
-        document.body.clientHeight, document.documentElement.clientHeight );
-
-    target = event.target;
-    saveX = event.offsetX;
-    saveY = event.offsetY;
-
-    document.onmousemove = event => {
-        target.style.position = 'absolute';
-        target.style.top = event.pageY - saveY + 'px';
-        target.style.left = event.pageX - saveX + 'px';
-        check(event, target, scrollHeight);
-    };
-
-    document.onmouseup = event => {
-        document.onmousemove = null;
-    }
-};
-
-function check(event, target, scrollHeight){
-    if (event.pageX - saveX <= 0) target.style.left = 0;
-    if (event.pageY - saveY <=0) target.style.top = 0;
-    if (event.pageY + (target.clientHeight - saveY) >= scrollHeight) {
-        target.style.top = scrollHeight-target.clientHeight+'px';
-    }
-    if (event.pageX + (target.clientWidth - saveX) >= document.body.scrollWidth) target.style.left = document.body.scrollWidth - target.clientWidth+'px ';
-}
-*/

@@ -27,6 +27,9 @@ export function resetZoom() {
     map.style.width = currentWidth.toString();
     map.style.height = currentHeight.toString();
     procentValue.textContent = currentZoom + '%';
+
+    plusButton.disabled = false;
+    minusButton.disabled = false;
 }
 
 setMap();

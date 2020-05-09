@@ -2,6 +2,7 @@ import {highlightCurrentFloor} from "./cardOfResults.js";
 import {highlightAvatarsOnCurrentFloor} from "./cardOfResults.js";
 import {setMap} from "./zoom.js";
 import {resetZoom} from "./zoom.js";
+import {setMap1} from "./dragAndDropOfMap.js";
 
 const buttonUp = document.querySelector('.up-toggle');
 const buttonDown = document.querySelector('.down-toggle');
@@ -52,6 +53,7 @@ function upFloor() {
         highlightAvatarsOnCurrentFloor();
         resetZoom();
         setMap();
+        setMap1();
     }
 }
 
@@ -80,6 +82,7 @@ function downFloor() {
         highlightAvatarsOnCurrentFloor();
         resetZoom();
         setMap();
+        setMap1();
     }
 }
 
