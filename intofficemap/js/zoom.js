@@ -11,13 +11,22 @@ const heightDelta = currentHeight / 4;
 
 let map;
 
-function setMap() {
+export function setMap() {
     const floors = document.querySelectorAll('.floor-of-map');
 
     for (let floor of floors) {
         if (floor.getAttribute('data-floor') === 'active')
             map = floor;
     }
+}
+
+export function resetZoom() {
+    currentZoom = 100;
+    currentWidth = 905;
+    currentHeight = 581;
+    map.style.width = currentWidth;
+    map.style.height = currentHeight;
+    procentValue.textContent = currentZoom + '%';
 }
 
 setMap();
