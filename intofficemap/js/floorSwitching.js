@@ -50,8 +50,8 @@ function upFloor() {
 
         highlightCurrentFloor();
         highlightAvatarsOnCurrentFloor();
-        setMap();
         resetZoom();
+        setMap();
     }
 }
 
@@ -78,8 +78,8 @@ function downFloor() {
 
         highlightCurrentFloor();
         highlightAvatarsOnCurrentFloor();
-        setMap();
         resetZoom();
+        setMap();
     }
 }
 

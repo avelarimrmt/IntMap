@@ -24,8 +24,8 @@ export function resetZoom() {
     currentZoom = 100;
     currentWidth = 905;
     currentHeight = 581;
-    map.style.width = currentWidth;
-    map.style.height = currentHeight;
+    map.style.width = currentWidth.toString();
+    map.style.height = currentHeight.toString();
     procentValue.textContent = currentZoom + '%';
 }
 
@@ -36,45 +36,76 @@ const plusButton = document.getElementById('plus');
 const minusButton = document.getElementById('minus');
 
 const procentValue = document.getElementById('val-scale');
-const value = procentValue.textContent;
-
-/*if (value.slice(value.length, value.length-1) !== (maxZoom.toString())) {
-    plusButton.addEventListener('click', upZoom);
-}*/
 
 plusButton.addEventListener('click', upZoom);
 
 function upZoom() {
-    currentZoom += zoomDelta;
-    currentWidth += widthDelta;
-    currentHeight += heightDelta;
+
 
     if (currentZoom === maxZoom) {
         plusButton.disabled = true;
         minusButton.disabled = false;
-    } else
+    } else {
+        currentZoom += zoomDelta;
+        currentWidth += widthDelta;
+        currentHeight += heightDelta;
         plusButton.disabled = false;
+    }
 
     map.style.width = currentWidth;
     map.style.height = currentHeight;
     procentValue.textContent = currentZoom + '%';
 }
 
-minusButton.addEventListener('click', downZoom);
+minusButton.onclick = () => downZoom();
 
 function downZoom() {
-    currentZoom -= zoomDelta;
-    currentWidth -= widthDelta;
-    currentHeight -= heightDelta;
 
     if (currentZoom === minZoom) {
         minusButton.disabled = true;
         plusButton.disabled = false;
-    } else
+    } else {
+        currentZoom -= zoomDelta;
+        currentWidth -= widthDelta;
+        currentHeight -= heightDelta;
         minusButton.disabled = false;
+    }
 
     map.style.width = currentWidth;
     map.style.height = currentHeight;
     procentValue.textContent = currentZoom + '%';
 }
+
+/*function addOnWheel(elem, handler) {
+    if (elem.addEventListener) {
+        if ('onwheel' in document) {
+            // IE9+, FF17+
+            elem.addEventListener("wheel", handler);
+        } else if ('onmousewheel' in document) {
+            // устаревший вариант события
+            elem.addEventListener("mousewheel", handler);
+        } else {
+            // 3.5 <= Firefox < 17, более старое событие DOMMouseScroll пропустим
+            elem.addEventListener("MozMousePixelScroll", handler);
+        }
+    } else { // IE8-
+        map.attachEvent("onmousewheel", handler);
+    }
+}
+
+let scale = 1;
+
+addOnWheel(map, function(e) {
+
+    let delta = e.deltaX || e.detail || e.wheelDelta;
+
+    // отмасштабируем при помощи CSS
+    if (delta > 0) scale += 0.25;
+    else scale -= 0.25;
+
+    map.style.transform = map.style.WebkitTransform = map.style.MsTransform = 'scale(' + scale + ')';
+
+    // отменим прокрутку
+    e.preventDefault();
+});*/
 
