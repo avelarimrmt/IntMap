@@ -348,6 +348,10 @@ svg.btn-svg, .btn-plus-minus {
 	height: 86%;
 }
 
+.floor-of-map:hover {
+    cursor: move;
+}
+
 .light-table {
     cursor: pointer;
 }
