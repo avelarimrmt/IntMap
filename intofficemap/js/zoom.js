@@ -24,8 +24,8 @@ export function resetZoom() {
     currentZoom = 100;
     currentWidth = 905;
     currentHeight = 581;
-    map.style.width = currentWidth.toString();
-    map.style.height = currentHeight.toString();
+    map.style.width = currentWidth.toString() + 'px';
+    map.style.height = currentHeight.toString() + 'px';
     procentValue.textContent = currentZoom + '%';
 
     plusButton.disabled = false;
@@ -40,11 +40,14 @@ const minusButton = document.getElementById('minus');
 
 const procentValue = document.getElementById('val-scale');
 
-plusButton.addEventListener('click', upZoom);
+
+plusButton.onclick = () => {
+    setTimeout(upZoom, 100);
+};
+
 
 function upZoom() {
-
-
+    console.log(currentWidth);
     if (currentZoom === maxZoom) {
         plusButton.disabled = true;
         minusButton.disabled = false;
@@ -55,12 +58,14 @@ function upZoom() {
         plusButton.disabled = false;
     }
 
-    map.style.width = currentWidth;
-    map.style.height = currentHeight;
+    map.style.width = currentWidth.toString() + 'px';
+    map.style.height = currentHeight.toString() + 'px';
     procentValue.textContent = currentZoom + '%';
 }
 
-minusButton.onclick = () => downZoom();
+minusButton.onclick = () => {
+    setTimeout(downZoom, 100);
+};
 
 function downZoom() {
 
@@ -74,8 +79,8 @@ function downZoom() {
         minusButton.disabled = false;
     }
 
-    map.style.width = currentWidth;
-    map.style.height = currentHeight;
+    map.style.width = currentWidth.toString()  + 'px';
+    map.style.height = currentHeight.toString()  + 'px';
     procentValue.textContent = currentZoom + '%';
 }
 

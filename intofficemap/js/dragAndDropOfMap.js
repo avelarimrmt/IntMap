@@ -1,13 +1,16 @@
 
 
 let map1;
+let back;
 
 export function setMap1() {
     const floors = document.querySelectorAll('.floor-of-map');
 
     for (let floor of floors) {
-        if (floor.getAttribute('data-floor') === 'active')
+        if (floor.getAttribute('data-floor') === 'active') {
             map1 = floor;
+            back = floor.querySelector('.droggable');
+        }
     }
 
     addEventsOnMap();
@@ -16,7 +19,7 @@ export function setMap1() {
 setMap1();
 
 function addEventsOnMap(){
-    map1.addEventListener('mousedown', function (e) {
+    back.addEventListener('mousedown', function (e) {
 
         let coords = getCoords(map1);
         let shiftX = e.pageX - coords.left;
@@ -38,14 +41,14 @@ function addEventsOnMap(){
             moveAt(e);
         };
 
-        map1.onmouseup = function () {
+        back.onmouseup = function () {
             document.onmousemove = null;
-            map1.onmouseup = null;
+            back.onmouseup = null;
         };
 
     });
 
-    map1.ondragstart = function () {
+    back.ondragstart = function () {
         return false;
     };
 }
