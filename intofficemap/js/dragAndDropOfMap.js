@@ -41,7 +41,6 @@ function addEventsOnMap(){
         map1.onmouseup = function () {
             document.onmousemove = null;
             map1.onmouseup = null;
-            map1.style.cursor = 'default';
         };
 
     });
