@@ -1,7 +1,11 @@
+import {setCurrentScale} from "./zoom.js";
 
 
 let map1;
 let back;
+
+let scale = setCurrentScale();
+//TODO убрать перепрыгивание в начало(когда масштаб отличный от 100) при перетаскивании карты
 
 export function setMap1() {
     const floors = document.querySelectorAll('.floor-of-map');

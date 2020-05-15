@@ -1,4 +1,4 @@
-let currentZoom = 100;
+/*let currentZoom = 100;
 const zoomDelta = 25;
 const minZoom = 50;
 const maxZoom = 150;
@@ -82,38 +82,101 @@ function downZoom() {
     map.style.width = currentWidth.toString()  + 'px';
     map.style.height = currentHeight.toString()  + 'px';
     procentValue.textContent = currentZoom + '%';
-}
+}*/
 
-/*function addOnWheel(elem, handler) {
-    if (elem.addEventListener) {
-        if ('onwheel' in document) {
-            // IE9+, FF17+
-            elem.addEventListener("wheel", handler);
-        } else if ('onmousewheel' in document) {
-            // устаревший вариант события
-            elem.addEventListener("mousewheel", handler);
-        } else {
-            // 3.5 <= Firefox < 17, более старое событие DOMMouseScroll пропустим
-            elem.addEventListener("MozMousePixelScroll", handler);
-        }
-    } else { // IE8-
-        map.attachEvent("onmousewheel", handler);
+let scale = 1;
+const minZoom = 0.5;
+const maxZoom = 1.5;
+
+let map;
+
+export function setMap() {
+    const floors = document.querySelectorAll('.floor-of-map');
+
+    for (let floor of floors) {
+        if (floor.getAttribute('data-floor') === 'active')
+            map = floor;
     }
 }
 
-let scale = 1;
+export function resetZoom() {
+    scale = 1;
+    map.style.transform = map.style.WebkitTransform = map.style.MsTransform = 'scale(' + scale + ')';
+    percentValue.textContent = scale*100 + '%';
+
+    plusButton.disabled = false;
+    minusButton.disabled = false;
+}
+
+setMap();
+
+const plusButton = document.getElementById('plus');
+
+const minusButton = document.getElementById('minus');
+
+const percentValue = document.getElementById('val-scale');
+
+
+plusButton.onclick = () => {
+    setTimeout(upZoom, 100);
+};
+
+
+function upZoom() {
+    if (scale === maxZoom) {
+        plusButton.disabled = true;
+        minusButton.disabled = false;
+    } else {
+        scale += 0.25;
+        plusButton.disabled = false;
+    }
+
+    changeMapAndPercentValue();
+}
+
+minusButton.onclick = () => {
+    setTimeout(downZoom, 100);
+};
+
+function downZoom() {
+
+    if (scale === minZoom) {
+        minusButton.disabled = true;
+        plusButton.disabled = false;
+    } else {
+        scale -= 0.25;
+        minusButton.disabled = false;
+    }
+
+    changeMapAndPercentValue();
+}
+
+function changeMapAndPercentValue() {
+    map.style.transform = map.style.WebkitTransform = map.style.MsTransform = 'scale(' + scale + ')';
+    percentValue.textContent = scale*100 + '%';
+}
+
+function addOnWheel(elem, handler) {
+    if (elem.addEventListener) {
+        if ('onwheel' in document)
+            elem.addEventListener("wheel", handler);
+    }
+}
 
 addOnWheel(map, function(e) {
 
-    let delta = e.deltaX || e.detail || e.wheelDelta;
+    let delta = e.deltaY || e.detail || e.wheelDelta;
 
-    // отмасштабируем при помощи CSS
-    if (delta > 0) scale += 0.25;
-    else scale -= 0.25;
+    if (delta < 0 && scale !== maxZoom) scale += 0.25;
+    else if (delta > 0 && scale !== minZoom) scale -= 0.25;
 
-    map.style.transform = map.style.WebkitTransform = map.style.MsTransform = 'scale(' + scale + ')';
+    changeMapAndPercentValue();
 
     // отменим прокрутку
     e.preventDefault();
-});*/
+});
 
+export function setCurrentScale() {
+    return scale;
+}
+//TODO не работает масштабирование колесиком для второго этажа
