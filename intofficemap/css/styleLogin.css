@@ -163,5 +163,15 @@ button:hover {
     left: 0;
 }
 
+span::selection, br::selection {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    cursor: default;
+}
+
+#submit-login::selection {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
 
 

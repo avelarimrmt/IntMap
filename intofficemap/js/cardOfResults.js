@@ -184,9 +184,6 @@ function setCardOfResults(employees) {
 
     const lastSeparator = results.lastChild;
     lastSeparator.remove();
-
-    const lastBlock = results.lastChild;
-    lastBlock.style.marginBottom = '60px';
 }
 
 export function highlightCurrentFloor() {

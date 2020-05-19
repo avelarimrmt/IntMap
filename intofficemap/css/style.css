@@ -533,7 +533,7 @@ svg:disabled .fill-up-down {
     position: fixed;
     display: none;
     width: 335px;
-    height: 100%;
+    height: 93%;
     top: 7vh;
     left: 0;
     z-index: 2;
@@ -612,12 +612,11 @@ svg:disabled .fill-up-down {
     position: fixed;
     display: none;
     width: 335px;
-    height: 100%;
+    height: 93%;
     top: 7vh;
     left: 0;
     z-index: 2;
     box-sizing: border-box;
-    overflow: auto;
 }
 
 .title-free-table {
@@ -634,13 +633,17 @@ svg:disabled .fill-up-down {
 
 .results-wrapper {
     display: flex;
+    background-color: #484848;
     width: 100%;
     height: 100%;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
 
 .results, .no-results {
     width: 100%;
-    background-color: #484848;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -650,7 +653,26 @@ svg:disabled .fill-up-down {
     font-weight: normal;
 }
 
+
+.scroll-content {
+    width: 96% !important;
+}
+
+.scrollbar-track {
+    background: #484848 !important;
+    width: 14px !important;
+    left: 321px;
+}
+
+.scrollbar-thumb {
+    background: #FFC617 !important;
+    width: 4px !important;
+    border-radius: 5px !important;
+}
+
 .no-results {
+    background-color: #484848;
+    height: 100%;
     align-items: center;
 }
 
