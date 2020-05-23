@@ -29,6 +29,8 @@ async function getTokenAsync() {
     } else {
         // если произошла ошибка, из errorText получаем текст ошибки
         console.log("Error: ", response.status, data.errorText);
+        const subtitle = document.querySelector('subtitle');
+        
     }
 }
 
