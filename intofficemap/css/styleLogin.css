@@ -50,8 +50,31 @@ button:hover {
     line-height: 46px;
     color: #FFC617;
     margin-top: 128px;
-    margin-bottom: 16px;
     width: 328px;
+}
+
+.invalid-title {
+    width: 328px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFC617;
+    margin-top: 21px;
+}
+
+.invalid-subtitle {
+    width: 328px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;
+    color: #FFFFFF;
+    margin-bottom: 22px;
+}
+
+.invalid-fields {
+    display: none;
 }
 
 .welcome-subtitle {
@@ -61,6 +84,7 @@ button:hover {
     line-height: 13px;
     color: #FFFFFF;
     margin-bottom: 42px;
+    margin-top:9px;
 }
 
 .wrap-input {
@@ -136,6 +160,20 @@ button:hover {
     height: 63px;
 }
 
+#submit-login:hover {
+    background: #E4B218;
+}
+
+#submit-login:focus-visible {
+     background: #B58F1C;
+ }
+
+#submit-login:active {
+    background: #E4B218;
+    box-shadow: 2px 4px 7px rgba(0, 0, 0, 0.1);
+}
+
+
 .photo-map {
     width: calc(100% - 428px);
     display: flex;
@@ -161,6 +199,7 @@ button:hover {
     height: 100%;
     top: 0;
     left: 0;
+    padding: 0;
 }
 
 span::selection, br::selection {

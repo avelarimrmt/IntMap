@@ -13,22 +13,21 @@
     <div class="form-wrapper">
         <form class="login-form">
             <span class="welcome-title">Добро<br/>пожаловать</span>
+
+            <span class="invalid-fields invalid-title">Не удаётся войти</span>
+            <span class="invalid-fields invalid-subtitle">Пожалуйста, проверьте правильность<br>написания логина и пароля.</span>
+
             <span class="welcome-subtitle">Войдите в систему для использования карты</span>
 
             <div class="wrap-input">
-                    <div class="name-input">
-                        <input id="login-input" type="text" name="username" placeholder="Логин">
-                    </div>
-                    <div class="pass-input">
-                        <input type="password" id="password-input" name="password" placeholder="Пароль">
-                        <a href="#" class="password-control"></a>
-                    </div>
+                <div class="name-input">
+                    <input id="login-input" type="text" name="username" placeholder="Логин">
+                </div>
+                <div class="pass-input">
+                    <input type="password" id="password-input" name="password" placeholder="Пароль">
+                    <a href="#" class="password-control"></a>
+                </div>
             </div>
-
-            <span class="incorrect-login-or-pass"></span>
-            <span class="incorrect-subtitle"></span>
-
-
 
             <div class="btn-wrapper">
                 <button id="submit-login" type="submit" class="login-btn">Войти</button>

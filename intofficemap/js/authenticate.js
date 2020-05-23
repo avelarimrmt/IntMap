@@ -7,6 +7,13 @@ async function getTokenAsync() {
     const login = document.getElementById("login-input").value;
     const password = document.getElementById("password-input").value;
     const hashValue = window.sha256(password);
+    const welcomeSubtitle = document.querySelector('.welcome-subtitle');
+    const invalidTitles = document.querySelectorAll('.invalid-fields');
+
+    welcomeSubtitle.style.display = 'block';
+    for (let title of invalidTitles) {
+        title.style.display = 'none';
+    }
 
     const formData = new FormData();
     formData.append("login", login);
@@ -19,18 +26,22 @@ async function getTokenAsync() {
         body: formData
     });
 
-    const data = await response.json();
+
 
     if (response.ok === true) {
+        const data = await response.json();
         // сохраняем в хранилище sessionStorage токен доступа
         sessionStorage.setItem(tokenKey, data.access_token);
 
         window.location = 'index.html';
     } else {
         // если произошла ошибка, из errorText получаем текст ошибки
-        console.log("Error: ", response.status, data.errorText);
-        const subtitle = document.querySelector('subtitle');
-        
+        console.log("Error: ", response.status);
+
+        welcomeSubtitle.style.display = 'none';
+        for (let title of invalidTitles) {
+            title.style.display = 'block';
+        }
     }
 }
 

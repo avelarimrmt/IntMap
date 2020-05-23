@@ -370,6 +370,7 @@ svg.btn-svg, .btn-plus-minus {
 
 .light-table:active {
     fill: #E4B218;
+    box-shadow: 2px 4px 7px rgba(0, 0, 0, 0.1);
 }
 
 .light-table:focus {
