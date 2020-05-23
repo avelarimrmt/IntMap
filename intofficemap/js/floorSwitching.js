@@ -9,9 +9,9 @@ const buttonDown = document.querySelector('.down-toggle');
 const floorNumber = document.getElementById('floor-number');
 const floors = document.querySelectorAll('.floor-of-map');
 
-let currentFloor = 14;
-const minFloor = 14;
-const maxFloor = 15;
+let currentFloor = 18;
+const minFloor = 18;
+const maxFloor = 19;
 
 export function getFloorNumber() {
     return currentFloor;
