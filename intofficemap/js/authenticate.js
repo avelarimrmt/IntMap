@@ -3,7 +3,7 @@ const tokenKey = "accessToken";
 // отпавка запроса к контроллеру AccountController для получения токена
 async function getTokenAsync() {
 
-    // получаем данные формы и фомируем объект для отправки
+    // получаем данные формы и формируем объект для отправки
     const login = document.getElementById("login-input").value;
     const password = document.getElementById("password-input").value;
     const hashValue = window.sha256(password);
@@ -33,7 +33,7 @@ async function getTokenAsync() {
         // сохраняем в хранилище sessionStorage токен доступа
         sessionStorage.setItem(tokenKey, data.access_token);
 
-        window.location = 'index.html';
+        window.location = 'map.html';
     } else {
         // если произошла ошибка, из errorText получаем текст ошибки
         console.log("Error: ", response.status);
