@@ -638,13 +638,13 @@ svg:disabled .fill-up-down {
     width: 100%;
     height: 100%;
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: flex-start;
     flex-wrap: nowrap;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .results, .no-results {
-    width: 100%;
+    width: 96%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -656,13 +656,17 @@ svg:disabled .fill-up-down {
 
 
 .scroll-content {
-    width: 96% !important;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .scrollbar-track {
     background: #484848 !important;
     width: 14px !important;
-    left: 321px;
+    left: 321px !important;
 }
 
 .scrollbar-thumb {

@@ -71,11 +71,6 @@ const results = cardOfResults.querySelector('.results');
 function setCardOfResults(employees) {
     clearCardOfResults();
 
-    const title = document.createElement('span');
-    title.classList = 'title-res';
-    title.textContent = 'Результаты поиска';
-    results.appendChild(title);
-
     const resultsSeparator = document.createElement('hr');
     resultsSeparator.style='border: 1px solid #FFC617; width: 300px';
 
