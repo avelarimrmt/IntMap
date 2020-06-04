@@ -377,6 +377,15 @@ svg.btn-svg, .btn-plus-minus {
     fill: #B58F1C;
 }
 
+[data-free=true]:active {
+    fill: #7C7C7C;
+    box-shadow: 2px 4px 7px rgba(0, 0, 0, 0.1);
+}
+
+[data-free=true]:hover {
+    fill: #7C7C7C;
+}
+
 [data-floor=active] {
     display: block;
 }
@@ -776,3 +785,7 @@ svg:disabled .fill-up-down {
 .br-hor {
     margin-left: 18px;
 }
+
+.color-free-table {
+     fill: #616161;
+ }

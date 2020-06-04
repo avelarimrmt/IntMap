@@ -237,7 +237,6 @@ function showCard(employee) {
     highlightDeskById(deskId);
 }
 
-const emp = document.querySelector('.employee');
 const backToResults = document.querySelector('.back-to-results');
 
 backToResults.addEventListener('click', () => clickBackToResults());
